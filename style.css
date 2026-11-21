@@ -169,3 +169,7 @@ h1,h2,h3,.head p,.row .n strong,.rt b,.path,.stat small{text-wrap:balance}
 .fd.easy{background:rgba(20,32,42,.07);color:var(--mute);font-weight:600;font-size:13px}
 .fd.pc{font-size:14px}
 .rt-sep{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);padding:10px 0 2px;border-top:1px dashed rgba(20,32,42,.25)}
+.pz{display:inline-flex;flex-wrap:wrap;gap:4px;justify-content:flex-end}
+.row .d .pz{flex-direction:column;align-items:flex-start}
+.rt .rf.skip{margin:3px 0 0;font-size:12px;color:var(--mute)}
+.rt .rf.skip::before{content:'↳ ';opacity:.7}
