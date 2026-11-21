@@ -1,0 +1,2013 @@
+[
+ {
+  "name": "Mount Laguna",
+  "mile": 42,
+  "tier": "gas",
+  "outdoor": true,
+  "note": "Kleiner Laden + Outfitter, begrenzte Auswahl",
+  "note_en": "Small store + outfitter, limited selection",
+  "trail": "PCT"
+ },
+ {
+  "name": "Julian",
+  "mile": 77,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Kleiner Lebensmittelladen",
+  "note_en": "Small grocery",
+  "trail": "PCT"
+ },
+ {
+  "name": "Warner Springs",
+  "mile": 109,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Community Center + Tankstelle, oft Paket",
+  "note_en": "Community center + gas station, often a box",
+  "trail": "PCT"
+ },
+ {
+  "name": "Idyllwild",
+  "mile": 179,
+  "tier": "market",
+  "outdoor": true,
+  "note": "Fairway Market + Outdoorladen",
+  "note_en": "Fairway Market + outdoor shop",
+  "trail": "PCT"
+ },
+ {
+  "name": "Big Bear Lake",
+  "mile": 266,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Vons, Grocery Outlet, Stater Bros",
+  "note_en": "Vons, Grocery Outlet, Stater Bros",
+  "trail": "PCT"
+ },
+ {
+  "name": "Wrightwood",
+  "mile": 363,
+  "tier": "market",
+  "outdoor": true,
+  "note": "Guter kleiner Markt + Mountain Hardware",
+  "note_en": "Good small market + Mountain Hardware",
+  "trail": "PCT"
+ },
+ {
+  "name": "Agua Dulce",
+  "mile": 455,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Kleiner Markt",
+  "note_en": "Small market",
+  "trail": "PCT"
+ },
+ {
+  "name": "Hikertown",
+  "mile": 518,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Mini-Laden, Paket empfohlen",
+  "note_en": "Tiny store, box recommended",
+  "trail": "PCT"
+ },
+ {
+  "name": "Tehachapi / Mojave",
+  "mile": 566,
+  "tier": "super",
+  "outdoor": false,
+  "note": "Walmart, Albertsons",
+  "note_en": "Walmart, Albertsons",
+  "trail": "PCT"
+ },
+ {
+  "name": "Kennedy Meadows South",
+  "mile": 703,
+  "tier": "gas",
+  "outdoor": true,
+  "note": "General Store + Triple Crown Outfitters, Paket empfohlen",
+  "note_en": "General store + Triple Crown Outfitters, box recommended",
+  "trail": "PCT"
+ },
+ {
+  "name": "Lone Pine",
+  "mile": 745,
+  "tier": "market",
+  "outdoor": true,
+  "note": "Joseph's Bi-Rite + Outfitter",
+  "note_en": "Joseph's Bi-Rite + outfitter",
+  "trail": "PCT"
+ },
+ {
+  "name": "Bishop (Kearsarge)",
+  "mile": 790,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Vons, Grocery Outlet, mehrere Outdoorläden",
+  "note_en": "Vons, Grocery Outlet, several outdoor shops",
+  "trail": "PCT"
+ },
+ {
+  "name": "Vermilion Valley Resort",
+  "mile": 880,
+  "tier": "gas",
+  "outdoor": true,
+  "note": "Resort-Laden, teuer",
+  "note_en": "Resort store, expensive",
+  "trail": "PCT"
+ },
+ {
+  "name": "Mammoth Lakes",
+  "mile": 908,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Vons, Grocery Outlet",
+  "note_en": "Vons, Grocery Outlet",
+  "trail": "PCT"
+ },
+ {
+  "name": "Tuolumne Meadows",
+  "mile": 942,
+  "tier": "gas",
+  "outdoor": true,
+  "note": "Kleiner Store, Öffnung saisonabhängig",
+  "note_en": "Small store, seasonal hours",
+  "trail": "PCT"
+ },
+ {
+  "name": "Kennedy Meadows North",
+  "mile": 1018,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Kleiner Resort-Laden",
+  "note_en": "Small resort store",
+  "trail": "PCT"
+ },
+ {
+  "name": "South Lake Tahoe",
+  "mile": 1093,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Safeway, Grocery Outlet, Raley's",
+  "note_en": "Safeway, Grocery Outlet, Raley's",
+  "trail": "PCT"
+ },
+ {
+  "name": "Truckee (Donner Pass)",
+  "mile": 1154,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Safeway",
+  "note_en": "Safeway",
+  "trail": "PCT"
+ },
+ {
+  "name": "Sierra City",
+  "mile": 1197,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Country Store, Paket empfohlen",
+  "note_en": "Country store, box recommended",
+  "trail": "PCT"
+ },
+ {
+  "name": "Quincy / Belden",
+  "mile": 1270,
+  "tier": "super",
+  "outdoor": false,
+  "note": "Safeway in Quincy",
+  "note_en": "Safeway in Quincy",
+  "trail": "PCT"
+ },
+ {
+  "name": "Chester",
+  "mile": 1332,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Holiday Market + Dollar General",
+  "note_en": "Holiday Market + Dollar General",
+  "trail": "PCT"
+ },
+ {
+  "name": "Old Station",
+  "mile": 1374,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Kleiner Laden",
+  "note_en": "Small store",
+  "trail": "PCT"
+ },
+ {
+  "name": "Burney",
+  "mile": 1412,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Lebensmittelladen im Ort",
+  "note_en": "Grocery in town",
+  "trail": "PCT"
+ },
+ {
+  "name": "Mount Shasta / Dunsmuir",
+  "mile": 1502,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Supermärkte + Outfitter",
+  "note_en": "Supermarkets + outfitter",
+  "trail": "PCT"
+ },
+ {
+  "name": "Etna",
+  "mile": 1601,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Kleiner Supermarkt",
+  "note_en": "Small supermarket",
+  "trail": "PCT"
+ },
+ {
+  "name": "Seiad Valley",
+  "mile": 1657,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Sehr kleiner Laden",
+  "note_en": "Very small store",
+  "trail": "PCT"
+ },
+ {
+  "name": "Ashland",
+  "mile": 1720,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Albertsons, Safeway, Dollar Tree",
+  "note_en": "Albertsons, Safeway, Dollar Tree",
+  "trail": "PCT"
+ },
+ {
+  "name": "Crater Lake (Mazama Village)",
+  "mile": 1822,
+  "tier": "gas",
+  "outdoor": true,
+  "note": "Camp Store, Paket empfohlen",
+  "note_en": "Camp store, box recommended",
+  "trail": "PCT"
+ },
+ {
+  "name": "Shelter Cove",
+  "mile": 1908,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Resort-Laden, Paket empfohlen",
+  "note_en": "Resort store, box recommended",
+  "trail": "PCT"
+ },
+ {
+  "name": "Bend / Sisters",
+  "mile": 1985,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Volle Auswahl",
+  "note_en": "Full selection",
+  "trail": "PCT"
+ },
+ {
+  "name": "Cascade Locks",
+  "mile": 2149,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Kleiner Markt, Hood River in der Nähe",
+  "note_en": "Small market, Hood River nearby",
+  "trail": "PCT"
+ },
+ {
+  "name": "Trout Lake",
+  "mile": 2232,
+  "tier": "market",
+  "outdoor": false,
+  "note": "General Store",
+  "note_en": "General store",
+  "trail": "PCT"
+ },
+ {
+  "name": "White Pass",
+  "mile": 2298,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Kracker Barrel Store, Paket empfohlen",
+  "note_en": "Kracker Barrel store, box recommended",
+  "trail": "PCT"
+ },
+ {
+  "name": "Snoqualmie Pass",
+  "mile": 2396,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Tankstellen-Laden, Paket empfohlen",
+  "note_en": "Gas station store, box recommended",
+  "trail": "PCT"
+ },
+ {
+  "name": "Leavenworth / Skykomish",
+  "mile": 2467,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Safeway in Leavenworth",
+  "note_en": "Safeway in Leavenworth",
+  "trail": "PCT"
+ },
+ {
+  "name": "Stehekin",
+  "mile": 2575,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Sehr begrenzt, Paket fast immer nötig",
+  "note_en": "Very limited, box almost always needed",
+  "trail": "PCT"
+ },
+ {
+  "name": "Mazama / Winthrop",
+  "mile": 2591,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Mazama Store, teuer",
+  "note_en": "Mazama Store, expensive",
+  "trail": "PCT"
+ },
+ {
+  "trail": "CDT",
+  "name": "Hachita",
+  "mile": 46,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Mini-Markt, die meisten laufen durch bis Lordsburg",
+  "note_en": "Mini-mart, most hikers push on to Lordsburg"
+ },
+ {
+  "trail": "CDT",
+  "name": "Lordsburg",
+  "mile": 85,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Lebensmittelladen + zwei Dollar-Stores",
+  "note_en": "Grocery + two dollar stores"
+ },
+ {
+  "trail": "CDT",
+  "name": "Silver City",
+  "mile": 160,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Supermärkte, Dollar Store, Outfitter",
+  "note_en": "Supermarkets, dollar store, outfitters"
+ },
+ {
+  "trail": "CDT",
+  "name": "Doc Campbell's (Gila-Alternate)",
+  "mile": 211,
+  "tier": "gas",
+  "outdoor": true,
+  "note": "Kleiner Laden, Paket meist empfohlen",
+  "note_en": "Small store, box usually recommended"
+ },
+ {
+  "trail": "CDT",
+  "name": "Reserve (Hitch)",
+  "mile": 375,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Solider kleiner Ort, Hitch nötig",
+  "note_en": "Solid small town, hitch required"
+ },
+ {
+  "trail": "CDT",
+  "name": "Pie Town",
+  "mile": 425,
+  "tier": "none",
+  "outdoor": false,
+  "note": "Keine Einkaufsmöglichkeit, Paket nötig",
+  "note_en": "No resupply, box required"
+ },
+ {
+  "trail": "CDT",
+  "name": "Grants",
+  "mile": 525,
+  "tier": "super",
+  "outdoor": false,
+  "note": "Walmart und Supermärkte",
+  "note_en": "Walmart and supermarkets"
+ },
+ {
+  "trail": "CDT",
+  "name": "Cuba",
+  "mile": 629,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Guter kleiner Markt, Dollar Store",
+  "note_en": "Good small market, dollar store"
+ },
+ {
+  "trail": "CDT",
+  "name": "Ghost Ranch (Alternate)",
+  "mile": 686,
+  "tier": "none",
+  "outdoor": false,
+  "note": "Nur Paket",
+  "note_en": "Box only"
+ },
+ {
+  "trail": "CDT",
+  "name": "Chama",
+  "mile": 792,
+  "tier": "super",
+  "outdoor": false,
+  "note": "Voller Lebensmittelladen",
+  "note_en": "Full grocery store"
+ },
+ {
+  "trail": "CDT",
+  "name": "Pagosa Springs (Wolf Creek Pass)",
+  "mile": 850,
+  "tier": "super",
+  "outdoor": true,
+  "note": "City Market + Outdoorläden",
+  "note_en": "City Market + outdoor shops"
+ },
+ {
+  "trail": "CDT",
+  "name": "Lake City (Spring Creek Pass)",
+  "mile": 985,
+  "tier": "market",
+  "outdoor": true,
+  "note": "Kleiner Markt + Outfitter",
+  "note_en": "Small market + outfitter"
+ },
+ {
+  "trail": "CDT",
+  "name": "Salida (Monarch Pass)",
+  "mile": 1100,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Supermärkte + Outfitter",
+  "note_en": "Supermarkets + outfitters"
+ },
+ {
+  "trail": "CDT",
+  "name": "Twin Lakes",
+  "mile": 1162,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "General Store, Pakete möglich",
+  "note_en": "General store, accepts boxes"
+ },
+ {
+  "trail": "CDT",
+  "name": "Leadville",
+  "mile": 1180,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Safeway + Outfitter",
+  "note_en": "Safeway + outfitters"
+ },
+ {
+  "trail": "CDT",
+  "name": "Breckenridge / Frisco",
+  "mile": 1240,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Supermärkte + Outdoorläden",
+  "note_en": "Supermarkets + outdoor shops"
+ },
+ {
+  "trail": "CDT",
+  "name": "Grand Lake",
+  "mile": 1340,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Kleiner Markt",
+  "note_en": "Small market"
+ },
+ {
+  "trail": "CDT",
+  "name": "Steamboat Springs",
+  "mile": 1460,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Supermärkte + Outfitter",
+  "note_en": "Supermarkets + outfitters"
+ },
+ {
+  "trail": "CDT",
+  "name": "Encampment / Riverside",
+  "mile": 1530,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Kleiner Laden",
+  "note_en": "Small store"
+ },
+ {
+  "trail": "CDT",
+  "name": "Rawlins",
+  "mile": 1630,
+  "tier": "super",
+  "outdoor": false,
+  "note": "Walmart + Supermarkt, gut zum Pakete packen",
+  "note_en": "Walmart + supermarket, good for prepping boxes"
+ },
+ {
+  "trail": "CDT",
+  "name": "South Pass City",
+  "mile": 1747,
+  "tier": "none",
+  "outdoor": false,
+  "note": "Nur Paket (Soda gibt's)",
+  "note_en": "Box only (soda available)"
+ },
+ {
+  "trail": "CDT",
+  "name": "Lander (via South Pass)",
+  "mile": 1750,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Volle Auswahl + Outfitter",
+  "note_en": "Full selection + outfitter"
+ },
+ {
+  "trail": "CDT",
+  "name": "Pinedale",
+  "mile": 1820,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Supermarkt + Outfitter",
+  "note_en": "Supermarket + outfitter"
+ },
+ {
+  "trail": "CDT",
+  "name": "Dubois",
+  "mile": 1915,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Kleiner Supermarkt",
+  "note_en": "Small supermarket"
+ },
+ {
+  "trail": "CDT",
+  "name": "Old Faithful",
+  "mile": 2017,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "General Stores, Nationalpark-Preise",
+  "note_en": "General stores, national park prices"
+ },
+ {
+  "trail": "CDT",
+  "name": "West Yellowstone",
+  "mile": 2069,
+  "tier": "market",
+  "outdoor": true,
+  "note": "Lebensmittelläden + Outdoorladen",
+  "note_en": "Grocery stores + outdoor shop"
+ },
+ {
+  "trail": "CDT",
+  "name": "Lima",
+  "mile": 2165,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Tankstelle + Restaurant, Paket ans Motel",
+  "note_en": "Gas station + restaurant, send box to motel"
+ },
+ {
+  "trail": "CDT",
+  "name": "Leadore",
+  "mile": 2268,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Mini-Markt, Hotel nimmt Pakete",
+  "note_en": "Mini-mart, hotel holds boxes"
+ },
+ {
+  "trail": "CDT",
+  "name": "Darby / Salmon (Hitch)",
+  "mile": 2390,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Kleiner Ort mit Lebensmittelladen",
+  "note_en": "Small town with grocery"
+ },
+ {
+  "trail": "CDT",
+  "name": "Anaconda / Butte",
+  "mile": 2464,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Mehrere Supermärkte",
+  "note_en": "Several supermarkets"
+ },
+ {
+  "trail": "CDT",
+  "name": "Helena",
+  "mile": 2618,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Volle Auswahl",
+  "note_en": "Full selection"
+ },
+ {
+  "trail": "CDT",
+  "name": "Lincoln",
+  "mile": 2722,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Convenience Store",
+  "note_en": "Convenience store"
+ },
+ {
+  "trail": "CDT",
+  "name": "Augusta",
+  "mile": 2780,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Kleiner Lebensmittelladen",
+  "note_en": "Small grocery store"
+ },
+ {
+  "trail": "CDT",
+  "name": "Benchmark Wilderness Ranch",
+  "mile": 2782,
+  "tier": "none",
+  "outdoor": false,
+  "note": "Nur Paket (Gebühr)",
+  "note_en": "Box only (fee)"
+ },
+ {
+  "trail": "CDT",
+  "name": "East Glacier",
+  "mile": 2910,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Kleine Läden",
+  "note_en": "Small stores"
+ },
+ {
+  "trail": "AT",
+  "name": "Neel Gap (Mountain Crossings)",
+  "mile": 31,
+  "tier": "gas",
+  "outdoor": true,
+  "note": "Outfitter mit Lebensmitteln direkt am Trail",
+  "note_en": "Outfitter with food right on trail"
+ },
+ {
+  "trail": "AT",
+  "name": "Hiawassee",
+  "mile": 69,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Ingles, Dollar General, Outfitter",
+  "note_en": "Ingles, Dollar General, outfitter"
+ },
+ {
+  "trail": "AT",
+  "name": "Franklin",
+  "mile": 109,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Ingles, Dollar General, Outfitter",
+  "note_en": "Ingles, Dollar General, outfitter"
+ },
+ {
+  "trail": "AT",
+  "name": "Nantahala Outdoor Center",
+  "mile": 137,
+  "tier": "gas",
+  "outdoor": true,
+  "note": "Outfitter mit Lebensmitteln",
+  "note_en": "Outfitter with food"
+ },
+ {
+  "trail": "AT",
+  "name": "Fontana Village",
+  "mile": 164,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Kleiner General Store, Paket empfohlen",
+  "note_en": "Small general store, box recommended"
+ },
+ {
+  "trail": "AT",
+  "name": "Gatlinburg",
+  "mile": 208,
+  "tier": "market",
+  "outdoor": true,
+  "note": "Kleine Läden, Food City per Trolley",
+  "note_en": "Small grocers, Food City via trolley"
+ },
+ {
+  "trail": "AT",
+  "name": "Standing Bear Farm",
+  "mile": 242,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Hostel mit kleinem Resupply",
+  "note_en": "Hostel with limited resupply"
+ },
+ {
+  "trail": "AT",
+  "name": "Hot Springs",
+  "mile": 275,
+  "tier": "market",
+  "outdoor": true,
+  "note": "Dollar General + Outfitter",
+  "note_en": "Dollar General + outfitter"
+ },
+ {
+  "trail": "AT",
+  "name": "Erwin",
+  "mile": 344,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Lebensmittelläden, Dollar Stores, Outfitter",
+  "note_en": "Groceries, dollar stores, outfitter"
+ },
+ {
+  "trail": "AT",
+  "name": "Mountain Harbour / US 19E",
+  "mile": 396,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Hostel mit kleinem Resupply, Paket empfohlen",
+  "note_en": "Hostel with small resupply, box recommended"
+ },
+ {
+  "trail": "AT",
+  "name": "Hampton",
+  "mile": 423,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Dollar General, kleine Läden",
+  "note_en": "Dollar General, small grocers"
+ },
+ {
+  "trail": "AT",
+  "name": "Damascus",
+  "mile": 471,
+  "tier": "market",
+  "outdoor": true,
+  "note": "Lebensmittelläden + Outfitter",
+  "note_en": "Grocers + outfitters"
+ },
+ {
+  "trail": "AT",
+  "name": "Marion",
+  "mile": 535,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Supermärkte + Outfitter",
+  "note_en": "Supermarkets + outfitter"
+ },
+ {
+  "trail": "AT",
+  "name": "Bland",
+  "mile": 592,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Supermarkt + Dollar General",
+  "note_en": "Supermarket + Dollar General"
+ },
+ {
+  "trail": "AT",
+  "name": "Pearisburg",
+  "mile": 636,
+  "tier": "super",
+  "outdoor": false,
+  "note": "Lebensmittelläden",
+  "note_en": "Grocers"
+ },
+ {
+  "trail": "AT",
+  "name": "Daleville",
+  "mile": 731,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Kroger + Outfitter",
+  "note_en": "Kroger + outfitter"
+ },
+ {
+  "trail": "AT",
+  "name": "Buena Vista",
+  "mile": 810,
+  "tier": "super",
+  "outdoor": false,
+  "note": "Food Lion",
+  "note_en": "Food Lion"
+ },
+ {
+  "trail": "AT",
+  "name": "Waynesboro (VA)",
+  "mile": 865,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Großer Markt + Outfitter",
+  "note_en": "Large market + outfitter"
+ },
+ {
+  "trail": "AT",
+  "name": "Big Meadows Wayside",
+  "mile": 927,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Wayside-Laden, kleine Auswahl",
+  "note_en": "Wayside store, small selection"
+ },
+ {
+  "trail": "AT",
+  "name": "Luray",
+  "mile": 945,
+  "tier": "super",
+  "outdoor": false,
+  "note": "Große und kleine Märkte",
+  "note_en": "Large and small markets"
+ },
+ {
+  "trail": "AT",
+  "name": "Front Royal",
+  "mile": 973,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Voller Supermarkt + Outfitter",
+  "note_en": "Full grocery + outfitter"
+ },
+ {
+  "trail": "AT",
+  "name": "Harpers Ferry",
+  "mile": 1027,
+  "tier": "gas",
+  "outdoor": true,
+  "note": "Kleine Läden, Paket empfohlen",
+  "note_en": "Small stores, box recommended"
+ },
+ {
+  "trail": "AT",
+  "name": "Waynesboro (PA)",
+  "mile": 1071,
+  "tier": "super",
+  "outdoor": false,
+  "note": "Walmart",
+  "note_en": "Walmart"
+ },
+ {
+  "trail": "AT",
+  "name": "Pine Grove Furnace",
+  "mile": 1106,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Kleiner Laden",
+  "note_en": "Small store"
+ },
+ {
+  "trail": "AT",
+  "name": "Boiling Springs",
+  "mile": 1125,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Kleine Food Marts",
+  "note_en": "Small food marts"
+ },
+ {
+  "trail": "AT",
+  "name": "Duncannon",
+  "mile": 1150,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Convenience Stores, Dollar General, Paket empfohlen",
+  "note_en": "Convenience stores, Dollar General, box recommended"
+ },
+ {
+  "trail": "AT",
+  "name": "Port Clinton / Hamburg",
+  "mile": 1221,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Walmart + Cabela's",
+  "note_en": "Walmart + Cabela's"
+ },
+ {
+  "trail": "AT",
+  "name": "Palmerton",
+  "mile": 1262,
+  "tier": "super",
+  "outdoor": false,
+  "note": "Volles Resupply",
+  "note_en": "Full resupply"
+ },
+ {
+  "trail": "AT",
+  "name": "Delaware Water Gap",
+  "mile": 1298,
+  "tier": "gas",
+  "outdoor": true,
+  "note": "Outfitter + kleine Läden",
+  "note_en": "Outfitter + small grocers"
+ },
+ {
+  "trail": "AT",
+  "name": "Vernon",
+  "mile": 1362,
+  "tier": "super",
+  "outdoor": false,
+  "note": "ACME Market",
+  "note_en": "ACME Market"
+ },
+ {
+  "trail": "AT",
+  "name": "Fort Montgomery",
+  "mile": 1410,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Kleine Märkte",
+  "note_en": "Small markets"
+ },
+ {
+  "trail": "AT",
+  "name": "Pawling",
+  "mile": 1452,
+  "tier": "super",
+  "outdoor": false,
+  "note": "Hannaford (etwas außerhalb)",
+  "note_en": "Hannaford (a bit outside town)"
+ },
+ {
+  "trail": "AT",
+  "name": "Kent",
+  "mile": 1473,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Kleine Auswahl",
+  "note_en": "Small selection"
+ },
+ {
+  "trail": "AT",
+  "name": "Salisbury",
+  "mile": 1508,
+  "tier": "market",
+  "outdoor": false,
+  "note": "LaBonne's Market",
+  "note_en": "LaBonne's Market"
+ },
+ {
+  "trail": "AT",
+  "name": "Great Barrington",
+  "mile": 1528,
+  "tier": "super",
+  "outdoor": false,
+  "note": "Price Chopper, Dollar Tree",
+  "note_en": "Price Chopper, Dollar Tree"
+ },
+ {
+  "trail": "AT",
+  "name": "Dalton / Pittsfield",
+  "mile": 1577,
+  "tier": "super",
+  "outdoor": false,
+  "note": "Wenig in Dalton, voll in Pittsfield",
+  "note_en": "Limited in Dalton, full in Pittsfield"
+ },
+ {
+  "trail": "AT",
+  "name": "Cheshire",
+  "mile": 1585,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Convenience Stores, Dollar General, Paket empfohlen",
+  "note_en": "Convenience stores, Dollar General, box recommended"
+ },
+ {
+  "trail": "AT",
+  "name": "Bennington",
+  "mile": 1618,
+  "tier": "super",
+  "outdoor": false,
+  "note": "Walmart, Aldi, Price Chopper",
+  "note_en": "Walmart, Aldi, Price Chopper"
+ },
+ {
+  "trail": "AT",
+  "name": "Manchester Center",
+  "mile": 1658,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Price Chopper + Outfitter",
+  "note_en": "Price Chopper + outfitter"
+ },
+ {
+  "trail": "AT",
+  "name": "Rutland",
+  "mile": 1708,
+  "tier": "super",
+  "outdoor": false,
+  "note": "Walmart, Price Chopper",
+  "note_en": "Walmart, Price Chopper"
+ },
+ {
+  "trail": "AT",
+  "name": "Hanover",
+  "mile": 1755,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Co-op Food Store + Outfitter",
+  "note_en": "Co-op food store + outfitter"
+ },
+ {
+  "trail": "AT",
+  "name": "North Woodstock / Lincoln",
+  "mile": 1808,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Price Chopper + Outfitter",
+  "note_en": "Price Chopper + outfitters"
+ },
+ {
+  "trail": "AT",
+  "name": "Gorham",
+  "mile": 1900,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Walmart + Outfitter",
+  "note_en": "Walmart + outfitter"
+ },
+ {
+  "trail": "AT",
+  "name": "Andover",
+  "mile": 1951,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Kleine General Stores",
+  "note_en": "Small general stores"
+ },
+ {
+  "trail": "AT",
+  "name": "Rangeley",
+  "mile": 1977,
+  "tier": "market",
+  "outdoor": true,
+  "note": "IGA + Outfitter",
+  "note_en": "IGA + outfitters"
+ },
+ {
+  "trail": "AT",
+  "name": "Stratton",
+  "mile": 2009,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Lebensmittelladen, kleine Märkte",
+  "note_en": "Grocery store, small markets"
+ },
+ {
+  "trail": "AT",
+  "name": "Caratunk",
+  "mile": 2046,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Resupply im Sterling Inn",
+  "note_en": "Resupply at the Sterling Inn"
+ },
+ {
+  "trail": "AT",
+  "name": "Monson",
+  "mile": 2083,
+  "tier": "gas",
+  "outdoor": true,
+  "note": "Kleine Läden, Shaw's per Shuttle, Paket vor der 100 Mile Wilderness empfohlen",
+  "note_en": "Small stores, Shaw's by shuttle, box before the 100 Mile Wilderness recommended"
+ },
+ {
+  "trail": "AT",
+  "name": "Abol Bridge / Millinocket",
+  "mile": 2183,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Abol Bridge Store klein, Hannaford in Millinocket",
+  "note_en": "Abol Bridge store small, Hannaford in Millinocket"
+ },
+ {
+  "trail": "CT",
+  "name": "Denver (Waterton Canyon)",
+  "mile": 0,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Volle Auswahl vor dem Start",
+  "note_en": "Full selection before the start",
+  "terminus": true
+ },
+ {
+  "trail": "CT",
+  "name": "Bailey (Hitch)",
+  "mile": 41,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Lebensmittelladen, Hitch nötig",
+  "note_en": "Grocery, hitch required"
+ },
+ {
+  "trail": "CT",
+  "name": "Jefferson (Kenosha Pass)",
+  "mile": 72,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Kleiner General Store",
+  "note_en": "Small general store"
+ },
+ {
+  "trail": "CT",
+  "name": "Fairplay (Kenosha Pass, Hitch)",
+  "mile": 72,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Volles Resupply im Ort, Hitch",
+  "note_en": "Full resupply in town, hitch"
+ },
+ {
+  "trail": "CT",
+  "name": "Frisco / Breckenridge",
+  "mile": 103,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Kostenloser Bus ab Trail, Supermärkte",
+  "note_en": "Free bus from trail, supermarkets"
+ },
+ {
+  "trail": "CT",
+  "name": "Copper Mountain",
+  "mile": 119,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Klein und teuer, nur Snacks auffüllen",
+  "note_en": "Small and expensive, snack top-up only"
+ },
+ {
+  "trail": "CT",
+  "name": "Leadville",
+  "mile": 143,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Safeway, ca. 10 mi vom Trail",
+  "note_en": "Safeway, about 10 mi off trail"
+ },
+ {
+  "trail": "CT",
+  "name": "Twin Lakes",
+  "mile": 177,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "General Store, beliebter Paket-Stop",
+  "note_en": "General store, popular mail drop"
+ },
+ {
+  "trail": "CT",
+  "name": "Buena Vista (Collegiate West/East)",
+  "mile": 216,
+  "tier": "super",
+  "outdoor": true,
+  "note": "City Market, ca. 9 mi vom Trail",
+  "note_en": "City Market, about 9 mi off trail"
+ },
+ {
+  "trail": "CT",
+  "name": "Mount Princeton Hot Springs",
+  "mile": 230,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Kleiner Laden, nur Collegiate East",
+  "note_en": "Small store, Collegiate East only"
+ },
+ {
+  "trail": "CT",
+  "name": "Salida (Monarch Pass, Hitch)",
+  "mile": 253,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Supermärkte, ca. 15 mi vom Trail",
+  "note_en": "Supermarkets, about 15 mi off trail"
+ },
+ {
+  "trail": "CT",
+  "name": "Gunnison (Hitch)",
+  "mile": 303,
+  "tier": "super",
+  "outdoor": false,
+  "note": "Safeway, City Market, 40–50 mi Hitch",
+  "note_en": "Safeway, City Market, 40–50 mi hitch"
+ },
+ {
+  "trail": "CT",
+  "name": "Creede (Hitch)",
+  "mile": 343,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Kentucky Belle Market, ca. 11 mi",
+  "note_en": "Kentucky Belle Market, about 11 mi"
+ },
+ {
+  "trail": "CT",
+  "name": "Lake City (Spring Creek Pass)",
+  "mile": 358,
+  "tier": "gas",
+  "outdoor": true,
+  "note": "Begrenzt, Paket empfohlen, 17 mi Hitch",
+  "note_en": "Limited, box suggested, 17 mi hitch"
+ },
+ {
+  "trail": "CT",
+  "name": "Silverton",
+  "mile": 412,
+  "tier": "market",
+  "outdoor": true,
+  "note": "Lebensmittelladen, Hitch oder Zug",
+  "note_en": "Grocery, hitch or train"
+ },
+ {
+  "trail": "CT",
+  "name": "Durango (Ende)",
+  "mile": 486,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Volle Auswahl",
+  "note_en": "Full selection",
+  "terminus": true
+ },
+ {
+  "trail": "JMT",
+  "name": "Yosemite Valley (Start)",
+  "mile": 0,
+  "tier": "market",
+  "outdoor": true,
+  "note": "Village Store, gute Auswahl",
+  "note_en": "Village Store, good selection",
+  "terminus": true
+ },
+ {
+  "trail": "JMT",
+  "name": "Tuolumne Meadows",
+  "mile": 23,
+  "tier": "gas",
+  "outdoor": true,
+  "note": "Kleiner Store, saisonal",
+  "note_en": "Small store, seasonal"
+ },
+ {
+  "trail": "JMT",
+  "name": "Red's Meadow",
+  "mile": 59,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Kleiner Laden, Pakete möglich",
+  "note_en": "Small store, accepts boxes"
+ },
+ {
+  "trail": "JMT",
+  "name": "Mammoth Lakes (Shuttle ab Red's)",
+  "mile": 60,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Vons, Grocery Outlet",
+  "note_en": "Vons, Grocery Outlet"
+ },
+ {
+  "trail": "JMT",
+  "name": "Vermilion Valley Resort",
+  "mile": 88,
+  "tier": "gas",
+  "outdoor": true,
+  "note": "Resort-Laden, teuer, Pakete",
+  "note_en": "Resort store, expensive, boxes"
+ },
+ {
+  "trail": "JMT",
+  "name": "Muir Trail Ranch",
+  "mile": 108,
+  "tier": "none",
+  "outdoor": false,
+  "note": "Nur Paket (Eimer), Hiker-Box",
+  "note_en": "Box only (buckets), hiker box"
+ },
+ {
+  "trail": "JMT",
+  "name": "Bishop (über Bishop Pass)",
+  "mile": 141,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Großer Umweg, volle Auswahl",
+  "note_en": "Long detour, full selection"
+ },
+ {
+  "trail": "JMT",
+  "name": "Independence / Bishop (Kearsarge Pass)",
+  "mile": 179,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Umweg über Kearsarge, Bishop voll",
+  "note_en": "Detour via Kearsarge, Bishop full"
+ },
+ {
+  "trail": "JMT",
+  "name": "Whitney Portal / Lone Pine (Ende)",
+  "mile": 222,
+  "tier": "market",
+  "outdoor": true,
+  "note": "Joseph's Bi-Rite",
+  "note_en": "Joseph's Bi-Rite",
+  "terminus": true
+ },
+ {
+  "trail": "AZT",
+  "name": "Patagonia",
+  "mile": 51,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Kleiner Markt, eher teuer",
+  "note_en": "Small market, fairly expensive"
+ },
+ {
+  "trail": "AZT",
+  "name": "Vail (Safeway)",
+  "mile": 113,
+  "tier": "super",
+  "outdoor": false,
+  "note": "Safeway, 6 mi vom Trail",
+  "note_en": "Safeway, 6 mi off trail"
+ },
+ {
+  "trail": "AZT",
+  "name": "Colossal Cave / La Posta Quemada",
+  "mile": 119,
+  "tier": "none",
+  "outdoor": false,
+  "note": "Nur Paket",
+  "note_en": "Box only"
+ },
+ {
+  "trail": "AZT",
+  "name": "Summerhaven",
+  "mile": 184,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Kleiner General Store",
+  "note_en": "Small general store"
+ },
+ {
+  "trail": "AZT",
+  "name": "High Jinks Ranch",
+  "mile": 196,
+  "tier": "none",
+  "outdoor": false,
+  "note": "Nur Paket (UPS/FedEx)",
+  "note_en": "Box only (UPS/FedEx)"
+ },
+ {
+  "trail": "AZT",
+  "name": "Oracle",
+  "mile": 198,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Dollar General, 4 mi vom Trail",
+  "note_en": "Dollar General, 4 mi off trail"
+ },
+ {
+  "trail": "AZT",
+  "name": "Kearny",
+  "mile": 263,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Lebensmittelladen, 7 mi vom Trail",
+  "note_en": "Grocery, 7 mi off trail"
+ },
+ {
+  "trail": "AZT",
+  "name": "Superior",
+  "mile": 301,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Lebensmittelladen, 5 mi vom Trail",
+  "note_en": "Grocery, 5 mi off trail"
+ },
+ {
+  "trail": "AZT",
+  "name": "Roosevelt Lake Marina",
+  "mile": 345,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Convenience Store",
+  "note_en": "Convenience store"
+ },
+ {
+  "trail": "AZT",
+  "name": "Pine",
+  "mile": 461,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Lebensmittelladen, 3 mi vom Trail",
+  "note_en": "Grocery, 3 mi off trail"
+ },
+ {
+  "trail": "AZT",
+  "name": "Mormon Lake",
+  "mile": 533,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Kleiner Laden",
+  "note_en": "Small store"
+ },
+ {
+  "trail": "AZT",
+  "name": "Flagstaff",
+  "mile": 577,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Volle Auswahl + Outfitter",
+  "note_en": "Full selection + outfitters"
+ },
+ {
+  "trail": "AZT",
+  "name": "Tusayan",
+  "mile": 684,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Laden im Ort",
+  "note_en": "Store in town"
+ },
+ {
+  "trail": "AZT",
+  "name": "Grand Canyon South Rim",
+  "mile": 688,
+  "tier": "market",
+  "outdoor": true,
+  "note": "Canyon Village Market",
+  "note_en": "Canyon Village Market"
+ },
+ {
+  "trail": "AZT",
+  "name": "Jacob Lake",
+  "mile": 762,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Kleiner Laden, keine Pakete mehr",
+  "note_en": "Small store, no longer holds boxes"
+ },
+ {
+  "trail": "PNT",
+  "name": "Polebridge",
+  "mile": 56,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Mercantile, klein, Paket empfohlen",
+  "note_en": "Mercantile, small, box recommended"
+ },
+ {
+  "trail": "PNT",
+  "name": "Eureka",
+  "mile": 135,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Lebensmittelladen",
+  "note_en": "Grocery"
+ },
+ {
+  "trail": "PNT",
+  "name": "Yaak",
+  "mile": 186,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Kleiner Laden",
+  "note_en": "Small store"
+ },
+ {
+  "trail": "PNT",
+  "name": "Bonners Ferry",
+  "mile": 249,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Supermarkt",
+  "note_en": "Supermarket"
+ },
+ {
+  "trail": "PNT",
+  "name": "Metaline Falls",
+  "mile": 355,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Kleiner Laden",
+  "note_en": "Small store"
+ },
+ {
+  "trail": "PNT",
+  "name": "Northport",
+  "mile": 400,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Kleiner Markt",
+  "note_en": "Small market"
+ },
+ {
+  "trail": "PNT",
+  "name": "Republic",
+  "mile": 475,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Lebensmittelladen",
+  "note_en": "Grocery"
+ },
+ {
+  "trail": "PNT",
+  "name": "Oroville",
+  "mile": 591,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Gute Auswahl, danach lange keine Stadt",
+  "note_en": "Good selection, long gap afterwards"
+ },
+ {
+  "trail": "PNT",
+  "name": "Loomis",
+  "mile": 604,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Sehr kleiner Laden",
+  "note_en": "Very small store"
+ },
+ {
+  "trail": "PNT",
+  "name": "Mazama / Winthrop",
+  "mile": 747,
+  "tier": "market",
+  "outdoor": true,
+  "note": "Mazama Store, Winthrop mehr Auswahl",
+  "note_en": "Mazama Store, more in Winthrop"
+ },
+ {
+  "trail": "PNT",
+  "name": "Ross Lake Resort",
+  "mile": 753,
+  "tier": "none",
+  "outdoor": false,
+  "note": "Nur Paket",
+  "note_en": "Box only"
+ },
+ {
+  "trail": "PNT",
+  "name": "Glacier / Bellingham (Hannegan)",
+  "mile": 802,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Klein in Glacier, voll in Bellingham",
+  "note_en": "Small in Glacier, full in Bellingham"
+ },
+ {
+  "trail": "PNT",
+  "name": "Concrete",
+  "mile": 848,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Lebensmittelladen",
+  "note_en": "Grocery"
+ },
+ {
+  "trail": "PNT",
+  "name": "Sedro-Woolley / Lyman",
+  "mile": 892,
+  "tier": "super",
+  "outdoor": false,
+  "note": "Supermärkte in der Nähe",
+  "note_en": "Supermarkets nearby"
+ },
+ {
+  "trail": "PNT",
+  "name": "Anacortes",
+  "mile": 968,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Volle Auswahl",
+  "note_en": "Full selection"
+ },
+ {
+  "trail": "PNT",
+  "name": "Oak Harbor",
+  "mile": 993,
+  "tier": "super",
+  "outdoor": false,
+  "note": "Volle Auswahl",
+  "note_en": "Full selection"
+ },
+ {
+  "trail": "PNT",
+  "name": "Port Townsend",
+  "mile": 1018,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Volle Auswahl",
+  "note_en": "Full selection"
+ },
+ {
+  "trail": "PNT",
+  "name": "Port Angeles",
+  "mile": 1078,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Volle Auswahl",
+  "note_en": "Full selection"
+ },
+ {
+  "trail": "PNT",
+  "name": "Forks",
+  "mile": 1182,
+  "tier": "market",
+  "outdoor": true,
+  "note": "Forks Outfitters (Lebensmittel + Ausrüstung)",
+  "note_en": "Forks Outfitters (groceries + gear)"
+ },
+ {
+  "trail": "PNT",
+  "name": "La Push",
+  "mile": 1225,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Kleiner Laden",
+  "note_en": "Small store"
+ },
+ {
+  "trail": "LT",
+  "name": "Bennington (Hitch)",
+  "mile": 14,
+  "tier": "super",
+  "outdoor": false,
+  "note": "Walmart, Price Chopper",
+  "note_en": "Walmart, Price Chopper"
+ },
+ {
+  "trail": "LT",
+  "name": "Manchester Center",
+  "mile": 48,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Price Chopper + Outfitter",
+  "note_en": "Price Chopper + outfitter"
+ },
+ {
+  "trail": "LT",
+  "name": "Rutland / Killington",
+  "mile": 98,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Walmart, Price Chopper; Killington klein",
+  "note_en": "Walmart, Price Chopper; Killington small"
+ },
+ {
+  "trail": "LT",
+  "name": "Middlebury Gap / Middlebury (Hitch)",
+  "mile": 120,
+  "tier": "super",
+  "outdoor": false,
+  "note": "Supermarkt in Middlebury",
+  "note_en": "Supermarket in Middlebury"
+ },
+ {
+  "trail": "LT",
+  "name": "Waitsfield (App Gap, Hitch)",
+  "mile": 150,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Lebensmittelladen",
+  "note_en": "Grocery"
+ },
+ {
+  "trail": "LT",
+  "name": "Richmond / Jonesville",
+  "mile": 167,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Lebensmittelladen",
+  "note_en": "Grocery"
+ },
+ {
+  "trail": "LT",
+  "name": "Johnson (VT 15)",
+  "mile": 210,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Lebensmittelladen",
+  "note_en": "Grocery"
+ },
+ {
+  "trail": "LT",
+  "name": "Jay / Montgomery (Hitch)",
+  "mile": 255,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Kleiner Laden",
+  "note_en": "Small store"
+ },
+ {
+  "trail": "TRT",
+  "name": "Tahoe City (Start)",
+  "mile": 0,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Safeway + Outfitter",
+  "note_en": "Safeway + outfitter",
+  "terminus": true
+ },
+ {
+  "trail": "TRT",
+  "name": "Kings Beach (Brockway Summit)",
+  "mile": 19,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Lebensmittelladen, Hitch",
+  "note_en": "Grocery, hitch"
+ },
+ {
+  "trail": "TRT",
+  "name": "Incline Village (Tahoe Meadows)",
+  "mile": 38,
+  "tier": "super",
+  "outdoor": false,
+  "note": "Raley's, Hitch",
+  "note_en": "Raley's, hitch"
+ },
+ {
+  "trail": "TRT",
+  "name": "Spooner Summit",
+  "mile": 60,
+  "tier": "none",
+  "outdoor": false,
+  "note": "Kein Laden, nur Paket/Cache",
+  "note_en": "No store, box or cache only"
+ },
+ {
+  "trail": "TRT",
+  "name": "Stateline / South Lake Tahoe (Kingsbury)",
+  "mile": 72,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Safeway, Grocery Outlet, Raley's",
+  "note_en": "Safeway, Grocery Outlet, Raley's"
+ },
+ {
+  "trail": "TRT",
+  "name": "Meyers (Big Meadow)",
+  "mile": 92,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Kleiner Markt",
+  "note_en": "Small market"
+ },
+ {
+  "trail": "TRT",
+  "name": "Echo Lake",
+  "mile": 103,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Kleiner Laden, nimmt Pakete",
+  "note_en": "Small store, holds boxes"
+ },
+ {
+  "trail": "TRT",
+  "name": "Tahoe City (Ende)",
+  "mile": 165,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Safeway",
+  "note_en": "Safeway",
+  "terminus": true
+ },
+ {
+  "trail": "WON",
+  "name": "Longmire (Start)",
+  "mile": 0,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "General Store klein, Cache möglich",
+  "note_en": "Small general store, cache possible",
+  "terminus": true
+ },
+ {
+  "trail": "WON",
+  "name": "Mowich Lake",
+  "mile": 34,
+  "tier": "none",
+  "outdoor": false,
+  "note": "Nur Cache",
+  "note_en": "Cache only"
+ },
+ {
+  "trail": "WON",
+  "name": "Sunrise",
+  "mile": 55,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Snackbar/Laden, Cache",
+  "note_en": "Snack bar/store, cache"
+ },
+ {
+  "trail": "WON",
+  "name": "White River",
+  "mile": 58,
+  "tier": "none",
+  "outdoor": false,
+  "note": "Nur Cache",
+  "note_en": "Cache only"
+ },
+ {
+  "trail": "WON",
+  "name": "Longmire (Ende)",
+  "mile": 93,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "General Store",
+  "note_en": "General store",
+  "terminus": true
+ },
+ {
+  "trail": "SHT",
+  "name": "Duluth (Südende)",
+  "mile": 0,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Volle Auswahl",
+  "note_en": "Full selection",
+  "terminus": true
+ },
+ {
+  "trail": "SHT",
+  "name": "Two Harbors",
+  "mile": 58,
+  "tier": "super",
+  "outdoor": false,
+  "note": "Supermarkt",
+  "note_en": "Supermarket"
+ },
+ {
+  "trail": "SHT",
+  "name": "Silver Bay",
+  "mile": 95,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Lebensmittelladen",
+  "note_en": "Grocery"
+ },
+ {
+  "trail": "SHT",
+  "name": "Finland",
+  "mile": 113,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Kleiner Laden",
+  "note_en": "Small store"
+ },
+ {
+  "trail": "SHT",
+  "name": "Tofte / Lutsen",
+  "mile": 165,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Kleine Läden",
+  "note_en": "Small stores"
+ },
+ {
+  "trail": "SHT",
+  "name": "Grand Marais",
+  "mile": 215,
+  "tier": "market",
+  "outdoor": true,
+  "note": "Lebensmittelladen + Outfitter",
+  "note_en": "Grocery + outfitter"
+ },
+ {
+  "trail": "SHT",
+  "name": "Nordende (270-Grad-Overlook)",
+  "mile": 300,
+  "tier": "none",
+  "outdoor": false,
+  "note": "Nichts, Ende",
+  "note_en": "Nothing, terminus",
+  "terminus": true
+ },
+ {
+  "trail": "PCT",
+  "name": "Campo (Südterminus)",
+  "mile": 0,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Start: vorher in San Diego einkaufen",
+  "note_en": "Start: shop beforehand in San Diego",
+  "terminus": true
+ },
+ {
+  "trail": "PCT",
+  "name": "Nordterminus / Manning Park",
+  "mile": 2655,
+  "tier": "gas",
+  "outdoor": false,
+  "note": "Ende: Manning Park Lodge mit kleinem Laden. SOBO-Start: vorher in Mazama/Winthrop einkaufen",
+  "note_en": "End: Manning Park Lodge with small store. SOBO start: shop beforehand in Mazama/Winthrop",
+  "terminus": true
+ },
+ {
+  "trail": "CDT",
+  "name": "Crazy Cook Monument (Südterminus)",
+  "mile": 0,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Start: vorher in Lordsburg einkaufen (Shuttle ab dort)",
+  "note_en": "Start: shop beforehand in Lordsburg (shuttle from there)",
+  "terminus": true
+ },
+ {
+  "trail": "CDT",
+  "name": "Waterton / Chief Mountain (Nordterminus)",
+  "mile": 2990,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Ende: kleiner Markt in Waterton. SOBO-Start: vorher in East Glacier einkaufen",
+  "note_en": "End: small market in Waterton. SOBO start: shop beforehand in East Glacier",
+  "terminus": true
+ },
+ {
+  "trail": "AT",
+  "name": "Springer Mountain (Südterminus)",
+  "mile": 0,
+  "tier": "super",
+  "outdoor": true,
+  "note": "Start: vorher in Atlanta oder Dahlonega einkaufen",
+  "note_en": "Start: shop beforehand in Atlanta or Dahlonega",
+  "terminus": true
+ },
+ {
+  "trail": "AT",
+  "name": "Katahdin (Nordterminus)",
+  "mile": 2198,
+  "tier": "none",
+  "outdoor": false,
+  "note": "Ende. SOBO-Start: vorher in Millinocket einkaufen",
+  "note_en": "End. SOBO start: shop beforehand in Millinocket",
+  "terminus": true
+ },
+ {
+  "trail": "AZT",
+  "name": "Mexikanische Grenze (Südterminus)",
+  "mile": 0,
+  "tier": "super",
+  "outdoor": false,
+  "note": "Start: vorher in Sierra Vista oder Tucson einkaufen",
+  "note_en": "Start: shop beforehand in Sierra Vista or Tucson",
+  "terminus": true
+ },
+ {
+  "trail": "AZT",
+  "name": "Utah-Grenze (Nordterminus)",
+  "mile": 800,
+  "tier": "none",
+  "outdoor": false,
+  "note": "Ende. SOBO-Start: vorher in Kanab einkaufen",
+  "note_en": "End. SOBO start: shop beforehand in Kanab",
+  "terminus": true
+ },
+ {
+  "trail": "PNT",
+  "name": "Chief Mountain (Ostterminus)",
+  "mile": 0,
+  "tier": "market",
+  "outdoor": false,
+  "note": "Start: vorher in East Glacier oder St. Mary einkaufen",
+  "note_en": "Start: shop beforehand in East Glacier or St. Mary",
+  "terminus": true
+ },
+ {
+  "trail": "PNT",
+  "name": "Cape Alava (Westterminus)",
+  "mile": 1246,
+  "tier": "none",
+  "outdoor": false,
+  "note": "Ende. Eastbound-Start: vorher in Forks oder Port Angeles einkaufen",
+  "note_en": "End. Eastbound start: shop beforehand in Forks or Port Angeles",
+  "terminus": true
+ },
+ {
+  "trail": "LT",
+  "name": "Massachusetts-Grenze (Südterminus)",
+  "mile": 0,
+  "tier": "super",
+  "outdoor": false,
+  "note": "Start: vorher in Williamstown/North Adams einkaufen",
+  "note_en": "Start: shop beforehand in Williamstown/North Adams",
+  "terminus": true
+ },
+ {
+  "trail": "LT",
+  "name": "Journey's End (Nordterminus)",
+  "mile": 272,
+  "tier": "none",
+  "outdoor": false,
+  "note": "Ende. SOBO-Start: vorher in Jay/Montgomery einkaufen",
+  "note_en": "End. SOBO start: shop beforehand in Jay/Montgomery",
+  "terminus": true
+ }
+]

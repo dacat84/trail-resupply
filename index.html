@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#24382d">
+<title>Trail Resupply</title>
+<meta name="description" content="Mobile resupply planner for US long trails: stops, services, distances and days">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧭</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="bar">
+    <span class="logo">🧭</span>
+    <h1>Trail Resupply</h1>
+    <button id="btn-set" class="iconbtn" aria-label="Settings">⚙️</button>
+  </div>
+  <div id="setrow" class="setrow" hidden>
+    <div class="seg dark" id="s-lang"><button data-v="en">EN</button><button data-v="de">DE</button><button data-v="es">ES</button><button data-v="fr">FR</button></div>
+    <div class="seg dark" id="s-units"><button data-v="metric">km</button><button data-v="imperial">mi</button></div>
+  </div>
+</header>
+
+<main>
+  <!-- PLANEN -->
+  <section id="v-plan" class="view active">
+    <div class="card">
+      <label class="lbl" data-i18n="trail"></label>
+      <select id="s-trail"></select>
+      <div class="seg" id="s-dir"><button data-v="fwd"></button><button data-v="rev"></button></div>
+    </div>
+
+    <div class="card">
+      <label class="lbl" data-i18n="start"></label>
+      <select id="s-start"></select>
+      <div id="start-info"></div>
+    </div>
+
+    <div class="card pace">
+      <div>
+        <label class="lbl" id="l-pace"></label>
+        <div class="stepper"><button data-step="-1">−</button><input id="s-pace" type="number" inputmode="numeric" min="5" max="80"><button data-step="1">+</button></div>
+      </div>
+      <div>
+        <label class="lbl" data-i18n="buffer"></label>
+        <div class="seg" id="s-buf"><button data-v="0">0</button><button data-v="0.5">½</button><button data-v="1">1</button></div>
+      </div>
+    </div>
+
+    <div id="leg" class="card leg" hidden></div>
+
+    <h2 class="sec" data-i18n="nextStops"></h2>
+    <div id="next" class="list"></div>
+
+    <div id="route-box" class="card" hidden>
+      <h2 class="sec2"><span data-i18n="myRoute"></span> <button id="r-clear" class="link" data-i18n="clear"></button></h2>
+      <div id="route"></div>
+    </div>
+  </section>
+
+  <!-- STRATEGIE -->
+  <section id="v-strat" class="view">
+    <div class="card" id="strat-head"></div>
+    <div id="strat" class="list"></div>
+  </section>
+
+  <!-- INFO -->
+  <section id="v-info" class="view">
+    <div class="card prose" id="info"></div>
+  </section>
+</main>
+
+<nav class="tabbar">
+  <button data-v="plan" class="active"><span>🗺</span><i data-i18n="tabPlan"></i></button>
+  <button data-v="strat"><span>📊</span><i data-i18n="tabStrat"></i></button>
+  <button data-v="info"><span>ℹ️</span><i data-i18n="tabInfo"></i></button>
+</nav>
+<div id="toast" class="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>

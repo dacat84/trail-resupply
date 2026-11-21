@@ -1,0 +1,85 @@
+[
+ {
+  "id": "PCT",
+  "name": "Pacific Crest Trail",
+  "fwd": "NOBO",
+  "rev": "SOBO",
+  "len": 2650
+ },
+ {
+  "id": "CDT",
+  "name": "Continental Divide Trail",
+  "fwd": "NOBO",
+  "rev": "SOBO",
+  "len": 3000,
+  "approx": true
+ },
+ {
+  "id": "AT",
+  "name": "Appalachian Trail",
+  "fwd": "NOBO",
+  "rev": "SOBO",
+  "len": 2198
+ },
+ {
+  "id": "CT",
+  "name": "Colorado Trail",
+  "fwd": "Denver → Durango",
+  "rev": "Durango → Denver",
+  "len": 486
+ },
+ {
+  "id": "JMT",
+  "name": "John Muir Trail",
+  "fwd": "SOBO",
+  "rev": "NOBO",
+  "len": 211
+ },
+ {
+  "id": "AZT",
+  "name": "Arizona Trail",
+  "fwd": "NOBO",
+  "rev": "SOBO",
+  "len": 800
+ },
+ {
+  "id": "PNT",
+  "name": "Pacific Northwest Trail",
+  "fwd": "Westbound",
+  "rev": "Eastbound",
+  "len": 1200,
+  "approx": true
+ },
+ {
+  "id": "LT",
+  "name": "Long Trail (VT)",
+  "fwd": "NOBO",
+  "rev": "SOBO",
+  "len": 272,
+  "approx": true
+ },
+ {
+  "id": "TRT",
+  "name": "Tahoe Rim Trail",
+  "fwd": "CW",
+  "rev": "CCW",
+  "len": 165,
+  "approx": true
+ },
+ {
+  "id": "WON",
+  "name": "Wonderland Trail",
+  "fwd": "CW",
+  "rev": "CCW",
+  "len": 93,
+  "approx": true
+ },
+ {
+  "id": "SHT",
+  "name": "Superior Hiking Trail",
+  "fwd": "NOBO",
+  "rev": "SOBO",
+  "len": 300,
+  "approx": true
+ }
+]
