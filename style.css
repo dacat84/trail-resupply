@@ -161,3 +161,10 @@ h1,h2,h3,.head p,.row .n strong,.rt b,.path,.stat small{text-wrap:balance}
 .rt.heavy .fd{background:var(--red);color:#fff}
 .row.far .fd{background:var(--red);color:#fff}
 .rt{align-items:center}
+
+/* Planungsmodus (experimentell) */
+.pace .mode{grid-column:1/-1}
+.pace .mode .seg{margin-top:0}
+.beta{display:inline-block;margin-left:6px;padding:1px 7px;border-radius:999px;background:var(--red);color:#fff;font-size:9.5px;letter-spacing:.08em;vertical-align:1px}
+.fd.easy{background:rgba(20,32,42,.07);color:var(--mute);font-weight:600;font-size:13px}
+.fd.pc{font-size:14px}

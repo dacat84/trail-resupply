@@ -17,6 +17,7 @@ const T = {
     noStop: 'There is no store in between, carry more or send a box.',
     fromWord: n => `from ${n}`, fillStop: 'extra stop: over 6 days of food otherwise', heavy: '> 6 days food',
     tooMuch: m => `More than ${m} days of food is a heavy carry. Most hikers resupply in between.`,
+    modeLbl: 'Plan by', beta: 'experimental', mKm: 'km per day', mFood: 'days of food', carry: 'Days of food (max.)', perDay: '/day', needPace: 'needed pace', relaxed: 'pack less', relaxedTip: 'Short leg: even at an easy pace you need less food than that.', paceHeavy: (n, k) => `${n} leg(s) need more than ${k} per day. Carry more food or add a stop.`, paceTot: (a, m) => `Ø ${a} · max. ${m} per day`, paceTip: (d, b) => `${d} days of food − ${b} buffer`,
     kick: 'Resupply planner', dayWord: 'days', store: 'Store', access: 'Getting there', stopHere: 'Hikers stopping here', boxLbl: 'Send a box',
     subLeg: (a, b, d, f) => `From ${a} to ${b} · ${d} · ${f} days of food`, subStart: a => `Starting at ${a}`,
     stratTitle: 'How most hikers do it', stratNone: 'No survey data for this trail yet. All known stops are listed.',
@@ -47,6 +48,7 @@ const T = {
     noStop: 'Dazwischen gibt es keine Einkaufsmöglichkeit, also mehr tragen oder eine Box schicken.',
     fromWord: n => `ab ${n}`, fillStop: 'Zwischenstopp: sonst über 6 Tage Essen', heavy: '> 6 Tage Essen',
     tooMuch: m => `Mehr als ${m} Tage Essen wird schwer. Die meisten resupplien dazwischen.`,
+    modeLbl: 'Planen nach', beta: 'experimentell', mKm: 'km pro Tag', mFood: 'Tage Essen', carry: 'Tage Essen (max.)', perDay: '/Tag', needPace: 'nötiges Tempo', relaxed: 'weniger', relaxedTip: 'Kurze Etappe: selbst locker gelaufen brauchst du weniger Essen.', paceHeavy: (n, k) => `${n} Etappe(n) brauchen mehr als ${k} pro Tag. Mehr Essen einpacken oder Zwischenstopp.`, paceTot: (a, m) => `Ø ${a} · max. ${m} pro Tag`, paceTip: (d, b) => `${d} Tage Essen − ${b} Reserve`,
     kick: 'Resupply-Planer', dayWord: 'Tage', store: 'Laden', access: 'Weg in den Ort', stopHere: 'Hiker halten hier', boxLbl: 'Box schicken',
     subLeg: (a, b, d, f) => `Von ${a} nach ${b} · ${d} · ${f} Tage Essen`, subStart: a => `Start in ${a}`,
     stratTitle: 'So machen es die meisten', stratNone: 'Für diesen Trail gibt es noch keine Umfragedaten. Alle bekannten Stops sind aufgelistet.',
@@ -77,6 +79,7 @@ const T = {
     noStop: 'No hay tienda en medio: carga más o envía un paquete.',
     fromWord: n => `desde ${n}`, fillStop: 'parada extra: si no, más de 6 días de comida', heavy: '> 6 días comida',
     tooMuch: m => `Más de ${m} días de comida pesa mucho. La mayoría se reabastece antes.`,
+    modeLbl: 'Planificar por', beta: 'experimental', mKm: 'km por día', mFood: 'días de comida', carry: 'Días de comida (máx.)', perDay: '/día', needPace: 'ritmo necesario', relaxed: 'menos', relaxedTip: 'Etapa corta: incluso a ritmo tranquilo necesitas menos comida.', paceHeavy: (n, k) => `${n} etapa(s) necesitan más de ${k} por día.`, paceTot: (a, m) => `Ø ${a} · máx. ${m} por día`, paceTip: (d, b) => `${d} días de comida − ${b} reserva`,
     kick: 'Planificador de reabastecimiento', dayWord: 'días', store: 'Tienda', access: 'Cómo llegar', stopHere: 'Hikers que paran', boxLbl: 'Enviar paquete',
     subLeg: (a, b, d, f) => `De ${a} a ${b} · ${d} · ${f} días de comida`, subStart: a => `Inicio en ${a}`,
     stratTitle: 'Cómo lo hace la mayoría', stratNone: 'Aún no hay datos de encuesta para este trail. Se listan todas las paradas conocidas.',
@@ -102,6 +105,7 @@ const T = {
     noStop: 'Pas de magasin entre les deux : porte plus ou envoie un colis.',
     fromWord: n => `depuis ${n}`, fillStop: 'arrêt en plus : sinon plus de 6 jours de nourriture', heavy: '> 6 jours',
     tooMuch: m => `Plus de ${m} jours de nourriture, c'est lourd. La plupart se ravitaillent entre-temps.`,
+    modeLbl: 'Planifier par', beta: 'expérimental', mKm: 'km par jour', mFood: 'jours de nourriture', carry: 'Jours de nourriture (max.)', perDay: '/jour', needPace: 'rythme nécessaire', relaxed: 'moins', relaxedTip: 'Étape courte : même tranquille, il faut moins de nourriture.', paceHeavy: (n, k) => `${n} étape(s) demandent plus de ${k} par jour.`, paceTot: (a, m) => `Ø ${a} · max. ${m} par jour`, paceTip: (d, b) => `${d} jours de nourriture − ${b} réserve`,
     kick: 'Planificateur de ravitaillement', dayWord: 'jours', store: 'Magasin', access: 'Accès', stopHere: 'Randonneurs qui s\'arrêtent', boxLbl: 'Envoyer un colis',
     subLeg: (a, b, d, f) => `De ${a} à ${b} · ${d} · ${f} jours de nourriture`, subStart: a => `Départ à ${a}`,
     stratTitle: 'Comment font la plupart', stratNone: 'Pas encore de données d\'enquête pour ce trail. Toutes les étapes connues sont listées.',
@@ -121,7 +125,7 @@ const LS = 'trailresupply-v1';
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const browserLang = () => { for (const l of (navigator.languages || [navigator.language || 'en'])) { const k = String(l).slice(0, 2).toLowerCase(); if (T[k]) return k; } return 'en'; };
-const S = Object.assign({ lang: browserLang(), units: 'metric', trail: 'PCT', dir: 'fwd', start: null, dest: null, pace: 20, buf: 0.5, route: [], open: null }, load());
+const S = Object.assign({ lang: browserLang(), units: 'metric', trail: 'PCT', dir: 'fwd', start: null, dest: null, pace: 20, buf: 0.5, mode: 'km', carry: 4, route: [], open: null }, load());
 function load() { try { return JSON.parse(localStorage.getItem(LS)) || {}; } catch (e) { return {}; } }
 function save() { try { localStorage.setItem(LS, JSON.stringify(S)); } catch (e) { /* egal */ } }
 const L = () => T[S.lang] || T.en;
@@ -155,6 +159,18 @@ function nextStops() {
 const miBetween = (a, b) => Math.abs(b.mile - a.mile);
 const walkDays = mi => mi / S.pace;
 const foodDays = mi => Math.max(1, Math.ceil((walkDays(mi) + +S.buf) * 2 - 1e-9) / 2);
+const FOOD = () => S.mode === 'food';
+const HARD = 40 / KM, EASY = 20 / KM; // mi/day: ab 40 km/Tag hart, unter 20 km/Tag locker
+const avail = () => Math.max(0.5, S.carry - S.buf);
+const needPace = mi => mi / avail();
+const paceTxt = v => `${fmt(IMP() ? v : v * KM)} ${IMP() ? 'mi' : 'km'}${t('perDay')}`;
+const legHeavy = mi => FOOD() ? needPace(mi) > HARD : foodDays(mi) > MAXFOOD;
+const pill = (mi, warn) => {
+  if (!FOOD()) return `<span class="fd" title="${esc(fdTip(mi))}">${fdTxt(foodDays(mi))} ${CUT}${warn ? ' ⚠' : ''}</span>`;
+  const v = needPace(mi), tip = `${t('needPace')}: ${L().paceTip(fdTxt(S.carry), fmt(+S.buf, S.buf % 1 ? 1 : 0))}`;
+  if (v < EASY) return `<span class="fd easy" title="${esc(t('relaxedTip'))}">↓ ${esc(t('relaxed'))} ${CUT}</span>`;
+  return `<span class="fd pc" title="${esc(tip)}">${paceTxt(v)}${warn ? ' ⚠' : ''}</span>`;
+};
 const fdTxt = x => fmt(x, x % 1 ? 1 : 0);
 const fdTip = mi => `${fmt(walkDays(mi), 1)} ${t('walkDays')} + ${fmt(+S.buf, S.buf % 1 ? 1 : 0)} ${S.lang === 'de' ? 'Reserve' : 'buffer'}`;
 const MAXFOOD = 6; // mehr als 6 Tage Essen trägt kaum jemand
@@ -211,8 +227,11 @@ function render() {
   $('#s-start').innerHTML = trailStops().map(s => `<option value="${s.i}">${fmt(s.mile, s.mile % 1 ? 1 : 0)} · ${esc(s.name)}</option>`).join('');
   $('#s-start').value = st.i;
   $('#start-info').innerHTML = detail(st);
-  $('#l-pace').textContent = L().pace(IMP() ? 'mi' : 'km');
-  $('#s-pace').value = IMP() ? Math.round(S.pace) : Math.round(S.pace * KM);
+  $('#m-km').textContent = t('mKm'); $('#m-food').textContent = t('mFood');
+  $$('#s-mode button').forEach(b => b.classList.toggle('on', b.dataset.v === S.mode));
+  $('#l-pace').textContent = FOOD() ? t('carry') : L().pace(IMP() ? 'mi' : 'km');
+  $('#s-pace').value = FOOD() ? fdTxt(S.carry).replace(',', '.') : (IMP() ? Math.round(S.pace) : Math.round(S.pace * KM));
+  $('#s-pace').step = FOOD() ? 0.5 : 1;
   $$('#s-buf button').forEach(b => b.classList.toggle('on', +b.dataset.v === +S.buf));
   if (S.routeAuto) { const p = typicalPlan(); if (p.length) S.route = planLegs(p); }
   renderNext(); renderLeg(); renderRoute(); renderStrat(); renderHead();
@@ -228,10 +247,10 @@ function renderNext() {
     const mi = miBetween(st, s), wd = walkDays(mi);
     if (wd > maxDays && html) break;
     const open = S.open === s.i, isDest = S.dest === s.i;
-    const heavy = foodDays(mi) > MAXFOOD;
+    const heavy = legHeavy(mi);
     html += `<div class="row ${open ? 'open' : ''} ${isDest ? 'dest' : ''} ${heavy ? 'far' : ''}" data-i="${s.i}">
       <div class="h">
-        <div class="d"><b>+${dist(mi)}</b><small class="wd">${fmt(wd, 1)} ${esc(t('dayWord'))}</small><span class="fd" title="${esc(fdTip(mi))}">${fdTxt(foodDays(mi))} ${CUT}</span>${heavy ? `<small class="heavy">${esc(t('heavy'))}</small>` : ''}</div>
+        <div class="d"><b>+${dist(mi)}</b>${FOOD() ? '' : `<small class="wd">${fmt(wd, 1)} ${esc(t('dayWord'))}</small>`}${pill(mi)}${heavy && !FOOD() ? `<small class="heavy">${esc(t('heavy'))}</small>` : ''}</div>
         <div class="n"><strong>${esc(name(s))}${s.use >= 60 ? `<span class="typ">★ ${esc(t('common'))}</span>` : ''}</strong>
           <div class="mini">${svcIcons(s)}</div>
           ${s.use != null ? `<div class="usebar"><i><b style="width:${Math.min(100, s.use)}%"></b></i>${fmt(s.use)} %</div>` : ''}</div>
@@ -251,23 +270,23 @@ function renderLeg() {
   const mi = miBetween(st, d);
   const r = (k, v) => v ? `<div class="r"><span>${esc(k)}</span><b>${esc(v)}</b></div>` : '';
   $('#leg').innerHTML = `<div class="path">${esc(st.name)} → ${esc(d.name)}</div>
-    <div class="big"><span class="t">${fdTxt(foodDays(mi))} ${esc(t('dayWord'))}</span><span class="d">${esc(t('foodDays'))}</span></div>
+    <div class="big">${FOOD() ? `<span class="t">${paceTxt(needPace(mi))}</span><span class="d">${esc(t('needPace'))}</span>` : `<span class="t">${fdTxt(foodDays(mi))} ${esc(t('dayWord'))}</span><span class="d">${esc(t('foodDays'))}</span>`}</div>
     <div class="km"><b>${dist(mi)}</b> · ${fmt(walkDays(mi), 1)} ${esc(t('walkDays'))}</div>
     ${r(t('store'), t('gro')[d.s.gro])}${r(t('access'), accText(d).replace(/^\S+\s/, ''))}${r(t('stopHere'), d.use != null ? fmt(d.use) + ' %' : '')}${r(t('boxLbl'), d.box ? fmt(d.box) + ' %' : (d.boxRec ? '✓' : ''))}
-    ${foodDays(mi) > MAXFOOD ? `<p class="warn">${esc(L().tooMuch(MAXFOOD))}</p>` : ''}
+    ${legHeavy(mi) ? `<p class="warn">${esc(FOOD() ? L().paceHeavy(1, paceTxt(HARD).replace(/\/.*/, '')) : L().tooMuch(MAXFOOD))}</p>` : ''}
     <a href="https://dacat84.github.io/trail-food/" target="_blank" rel="noopener">${esc(t('planFood'))}</a>`;
 }
 function renderRoute() {
   const r = (S.route || []).filter(x => D.stops[x.a] && D.stops[x.b]);
   $('#route-box').hidden = !r.length;
   if (!r.length) return;
-  let tot = 0, nHeavy = 0;
+  let tot = 0, nHeavy = 0, mx = 0;
   $('#route').innerHTML = r.map((x, k) => {
     const a = D.stops[x.a], b = D.stops[x.b], mi = miBetween(a, b); tot += mi;
-    const heavy = foodDays(mi) > MAXFOOD; if (heavy) nHeavy++;
-    return `<div class="rt ${heavy ? 'heavy' : ''}"><span><em class="rf">${k + 1} · ${esc(L().fromWord(a.name))}</em><b>→ ${esc(b.name)}</b></span><div class="rm"><b>${dist(mi)}</b><span class="fd" title="${esc(fdTip(mi))}">${fdTxt(foodDays(mi))} ${CUT}${heavy ? ' ⚠' : ''}</span></div></div>`;
-  }).join('') + `<div class="rt-sum">${esc(L().total(r.length, dist(tot), fmt(walkDays(tot), 0)))}</div>`
-    + (nHeavy ? `<p class="warn">${esc(L().routeHeavy(nHeavy, MAXFOOD))}${S.routeAuto ? ' ' + esc(t('noStop')) : ''}</p>${S.routeAuto ? '' : `<button class="btn pri" id="r-fix" style="width:100%;margin-top:8px">${esc(t('routeFix'))}</button>`}` : '');
+    const heavy = legHeavy(mi); if (heavy) nHeavy++; if (FOOD() && needPace(mi) > mx) mx = needPace(mi);
+    return `<div class="rt ${heavy ? 'heavy' : ''}"><span><em class="rf">${k + 1} · ${esc(L().fromWord(a.name))}</em><b>→ ${esc(b.name)}</b></span><div class="rm"><b>${dist(mi)}</b>${pill(mi, heavy)}</div></div>`;
+  }).join('') + `<div class="rt-sum">${esc(FOOD() ? `${r.length} · ${dist(tot)} · ${L().paceTot(paceTxt(tot / (r.length * avail())).replace(/\/.*/, ''), paceTxt(mx).replace(/\/.*/, ''))}` : L().total(r.length, dist(tot), fmt(walkDays(tot), 0)))}</div>`
+    + (nHeavy ? `<p class="warn">${esc(FOOD() ? L().paceHeavy(nHeavy, paceTxt(HARD).replace(/\/.*/, '')) : L().routeHeavy(nHeavy, MAXFOOD))}${S.routeAuto ? ' ' + esc(t('noStop')) : ''}</p>${S.routeAuto ? '' : `<button class="btn pri" id="r-fix" style="width:100%;margin-top:8px">${esc(t('routeFix'))}</button>`}` : '');
   const fix = $('#r-fix');
   if (fix) fix.onclick = () => { const p = typicalPlan(); S.route = planLegs(p); S.routeAuto = true; render(); toast(t('stratTaken')); };
 }
@@ -280,7 +299,7 @@ function typicalPlan() {
   for (let guard = 0; avg.length && guard < 40; guard++) {
     let ins = false;
     for (let k = 1; k < avg.length; k++) {
-      if (foodDays(miBetween(avg[k - 1], avg[k])) <= MAXFOOD) continue;
+      if (!legHeavy(miBetween(avg[k - 1], avg[k]))) continue;
       const lo = Math.min(avg[k - 1].mile, avg[k].mile), hi = Math.max(avg[k - 1].mile, avg[k].mile);
       const between = all.filter(s => s.mile > lo && s.mile < hi && s.s.gro > 0);
       const mid = between.sort((a, b) => (b.use ?? -1) - (a.use ?? -1) || Math.abs((a.mile - lo) - (hi - a.mile)) - Math.abs((b.mile - lo) - (hi - b.mile)))[0];
@@ -336,7 +355,7 @@ function renderHead() {
   const ok = d && d.trail === S.trail && nextStops().some(x => x.i === d.i);
   $('#kick').textContent = `${t('kick')} · ${tm.id} · ${S.dir === 'rev' ? tm.rev : tm.fwd}`;
   $('#htitle').textContent = tm.name;
-  $('#hsub').textContent = ok ? L().subLeg(st.name, d.name, dist(miBetween(st, d)), fdTxt(foodDays(miBetween(st, d)))) : L().subStart(st.name);
+  $('#hsub').textContent = ok ? (FOOD() ? `${st.name} → ${d.name} · ${dist(miBetween(st, d))} · ${paceTxt(needPace(miBetween(st, d)))}` : L().subLeg(st.name, d.name, dist(miBetween(st, d)), fdTxt(foodDays(miBetween(st, d))))) : L().subStart(st.name);
   document.title = `${tm.name} · Trail Resupply`;
   renderBg();
 }
@@ -348,9 +367,10 @@ function init() {
   $('#s-trail').onchange = e => { S.trail = e.target.value; S.start = null; S.dest = null; S.open = null; render(); };
   $$('#s-dir button').forEach(b => b.onclick = () => { S.dir = b.dataset.v; S.start = null; S.dest = null; S.open = null; render(); });
   $('#s-start').onchange = e => { S.start = +e.target.value; S.dest = null; S.open = null; render(); };
-  const setPace = v => { if (v > 0) S.pace = IMP() ? v : v / KM; render(); };
+  const setPace = v => { if (!(v > 0)) return; if (FOOD()) S.carry = Math.min(10, Math.max(1, Math.round(v * 2) / 2)); else S.pace = IMP() ? v : v / KM; render(); };
+  $$('#s-mode button').forEach(b => b.onclick = () => { S.mode = b.dataset.v; render(); });
   $('#s-pace').onchange = e => setPace(+e.target.value);
-  $$('.stepper button').forEach(b => b.onclick = () => setPace(+$('#s-pace').value + +b.dataset.step));
+  $$('.stepper button').forEach(b => b.onclick = () => setPace(+$('#s-pace').value + +b.dataset.step * (FOOD() ? 0.5 : 1)));
   $$('#s-buf button').forEach(b => b.onclick = () => { S.buf = +b.dataset.v; render(); });
   $('#r-clear').onclick = () => { S.route = []; S.routeAuto = false; render(); };
   const rowClick = e => {
