@@ -13,7 +13,8 @@ const T = {
     setDest: 'Set as destination', goOn: 'Continue from here', destSet: 'Destination set', legAdded: 'Leg added to route',
     total: (d, km, days) => `${d} legs · ${km} · ≈ ${days} hiking days`,
     common: 'popular', planFood: 'Plan food for this leg →',
-    fromWord: n => `from ${n}`, fillStop: 'extra stop: long gap',
+    fromWord: n => `from ${n}`, fillStop: 'extra stop: over 6 days of food otherwise', heavy: '> 6 days food',
+    tooMuch: m => `More than ${m} days of food is a heavy carry. Most hikers resupply in between.`,
     kick: 'Resupply planner', dayWord: 'days', store: 'Store', access: 'Getting there', stopHere: 'Hikers stopping here', boxLbl: 'Send a box',
     subLeg: (a, b, d, f) => `From ${a} to ${b} · ${d} · ${f} days of food`, subStart: a => `Starting at ${a}`,
     stratTitle: 'How most hikers do it', stratNone: 'No survey data for this trail yet. All known stops are listed.',
@@ -40,7 +41,8 @@ const T = {
     setDest: 'Als Ziel', goOn: 'Ab hier weiter', destSet: 'Ziel gesetzt', legAdded: 'Etappe zur Route hinzugefügt',
     total: (d, km, days) => `${d} Etappen · ${km} · ≈ ${days} Lauftage`,
     common: 'beliebt', planFood: 'Essen für diese Etappe planen →',
-    fromWord: n => `ab ${n}`, fillStop: 'Zwischenstopp: lange Lücke',
+    fromWord: n => `ab ${n}`, fillStop: 'Zwischenstopp: sonst über 6 Tage Essen', heavy: '> 6 Tage Essen',
+    tooMuch: m => `Mehr als ${m} Tage Essen wird schwer. Die meisten resupplien dazwischen.`,
     kick: 'Resupply-Planer', dayWord: 'Tage', store: 'Laden', access: 'Weg in den Ort', stopHere: 'Hiker halten hier', boxLbl: 'Box schicken',
     subLeg: (a, b, d, f) => `Von ${a} nach ${b} · ${d} · ${f} Tage Essen`, subStart: a => `Start in ${a}`,
     stratTitle: 'So machen es die meisten', stratNone: 'Für diesen Trail gibt es noch keine Umfragedaten. Alle bekannten Stops sind aufgelistet.',
@@ -67,7 +69,8 @@ const T = {
     setDest: 'Como destino', goOn: 'Seguir desde aquí', destSet: 'Destino fijado', legAdded: 'Etapa añadida a la ruta',
     total: (d, km, days) => `${d} etapas · ${km} · ≈ ${days} días de marcha`,
     common: 'popular', planFood: 'Planear comida para esta etapa →',
-    fromWord: n => `desde ${n}`, fillStop: 'parada extra: tramo largo',
+    fromWord: n => `desde ${n}`, fillStop: 'parada extra: si no, más de 6 días de comida', heavy: '> 6 días comida',
+    tooMuch: m => `Más de ${m} días de comida pesa mucho. La mayoría se reabastece antes.`,
     kick: 'Planificador de reabastecimiento', dayWord: 'días', store: 'Tienda', access: 'Cómo llegar', stopHere: 'Hikers que paran', boxLbl: 'Enviar paquete',
     subLeg: (a, b, d, f) => `De ${a} a ${b} · ${d} · ${f} días de comida`, subStart: a => `Inicio en ${a}`,
     stratTitle: 'Cómo lo hace la mayoría', stratNone: 'Aún no hay datos de encuesta para este trail. Se listan todas las paradas conocidas.',
@@ -89,7 +92,8 @@ const T = {
     setDest: 'Comme destination', goOn: 'Continuer d\'ici', destSet: 'Destination définie', legAdded: 'Étape ajoutée',
     total: (d, km, days) => `${d} étapes · ${km} · ≈ ${days} jours de marche`,
     common: 'populaire', planFood: 'Planifier la nourriture →',
-    fromWord: n => `depuis ${n}`, fillStop: 'arrêt en plus : longue section',
+    fromWord: n => `depuis ${n}`, fillStop: 'arrêt en plus : sinon plus de 6 jours de nourriture', heavy: '> 6 jours',
+    tooMuch: m => `Plus de ${m} jours de nourriture, c'est lourd. La plupart se ravitaillent entre-temps.`,
     kick: 'Planificateur de ravitaillement', dayWord: 'jours', store: 'Magasin', access: 'Accès', stopHere: 'Randonneurs qui s\'arrêtent', boxLbl: 'Envoyer un colis',
     subLeg: (a, b, d, f) => `De ${a} à ${b} · ${d} · ${f} jours de nourriture`, subStart: a => `Départ à ${a}`,
     stratTitle: 'Comment font la plupart', stratNone: 'Pas encore de données d\'enquête pour ce trail. Toutes les étapes connues sont listées.',
@@ -142,6 +146,7 @@ function nextStops() {
 const miBetween = (a, b) => Math.abs(b.mile - a.mile);
 const walkDays = mi => mi / S.pace;
 const foodDays = mi => Math.max(1, Math.ceil(walkDays(mi) + +S.buf - 1e-9));
+const MAXFOOD = 6; // mehr als 6 Tage Essen trägt kaum jemand
 const note = s => (S.lang === 'de' ? s.de : s.en) || s.en || s.de || '';
 const name = s => s.name;
 
@@ -211,9 +216,10 @@ function renderNext() {
     const mi = miBetween(st, s), wd = walkDays(mi);
     if (wd > maxDays && html) break;
     const open = S.open === s.i, isDest = S.dest === s.i;
-    html += `<div class="row ${open ? 'open' : ''} ${isDest ? 'dest' : ''} ${wd > 7 ? 'far' : ''}" data-i="${s.i}">
+    const heavy = foodDays(mi) > MAXFOOD;
+    html += `<div class="row ${open ? 'open' : ''} ${isDest ? 'dest' : ''} ${heavy ? 'far' : ''}" data-i="${s.i}">
       <div class="h">
-        <div class="d"><b>+${dist(mi)}</b><small>${fmt(wd, 1)} ${t('days')} → ${foodDays(mi)} 🍽</small></div>
+        <div class="d"><b>+${dist(mi)}</b><small>${fmt(wd, 1)} ${t('days')} → ${foodDays(mi)} 🍽</small>${heavy ? `<small class="heavy">${esc(t('heavy'))}</small>` : ''}</div>
         <div class="n"><strong>${esc(name(s))}${s.use >= 60 ? `<span class="typ">★ ${esc(t('common'))}</span>` : ''}</strong>
           <div class="mini">${svcIcons(s)}</div>
           ${s.use != null ? `<div class="usebar"><i><b style="width:${Math.min(100, s.use)}%"></b></i>${fmt(s.use)} %</div>` : ''}</div>
@@ -236,6 +242,7 @@ function renderLeg() {
     <div class="big"><span class="t">${foodDays(mi)} ${esc(t('dayWord'))}</span><span class="d">${esc(t('foodDays'))}</span></div>
     <div class="km"><b>${dist(mi)}</b> · ${fmt(walkDays(mi), 1)} ${esc(t('walkDays'))}</div>
     ${r(t('store'), t('gro')[d.s.gro])}${r(t('access'), accText(d).replace(/^\S+\s/, ''))}${r(t('stopHere'), d.use != null ? fmt(d.use) + ' %' : '')}${r(t('boxLbl'), d.box ? fmt(d.box) + ' %' : (d.boxRec ? '✓' : ''))}
+    ${foodDays(mi) > MAXFOOD ? `<p class="warn">${esc(L().tooMuch(MAXFOOD))}</p>` : ''}
     <a href="https://dacat84.github.io/trail-food/" target="_blank" rel="noopener">${esc(t('planFood'))}</a>`;
 }
 function renderRoute() {
@@ -252,13 +259,15 @@ function renderStrat() {
   const tm = trailMeta(), all = trailStops(), avg = all.filter(s => s.avg);
   if (avg.length && avg[0] !== all[0]) avg.unshift(all[0]);
   if (avg.length && avg[avg.length - 1] !== all[all.length - 1]) avg.push(all[all.length - 1]);
-  // Lücken über ~130 mi (≈ 7 Tage bei Ø 19 mi): meistgenutzten Zwischenstopp einfügen
-  for (let guard = 0; avg.length && guard < 20; guard++) {
+  // Etappen mit mehr als MAXFOOD Tagen Essen (bei deinem Tempo): meistgenutzten Zwischenstopp einfügen
+  all.forEach(s => { s.fill = false; });
+  for (let guard = 0; avg.length && guard < 40; guard++) {
     let ins = false;
     for (let k = 1; k < avg.length; k++) {
-      if (miBetween(avg[k - 1], avg[k]) <= 130) continue;
+      if (foodDays(miBetween(avg[k - 1], avg[k])) <= MAXFOOD) continue;
       const lo = Math.min(avg[k - 1].mile, avg[k].mile), hi = Math.max(avg[k - 1].mile, avg[k].mile);
-      const mid = all.filter(s => s.mile > lo && s.mile < hi && s.use != null).sort((a, b) => b.use - a.use)[0];
+      const between = all.filter(s => s.mile > lo && s.mile < hi && s.s.gro > 0);
+      const mid = between.sort((a, b) => (b.use ?? -1) - (a.use ?? -1) || Math.abs((a.mile - lo) - (hi - a.mile)) - Math.abs((b.mile - lo) - (hi - b.mile)))[0];
       if (mid) { mid.fill = true; avg.splice(k, 0, mid); ins = true; break; }
     }
     if (!ins) break;
