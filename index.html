@@ -16,17 +16,21 @@
   <div class="bar">
     <img class="logo" alt="" src="data:image/svg+xml,<svg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 32 32&#39;><rect width=&#39;32&#39; height=&#39;32&#39; fill=&#39;%23141414&#39;/><rect x=&#39;2.5&#39; y=&#39;2.5&#39; width=&#39;27&#39; height=&#39;27&#39; fill=&#39;%23f5b301&#39;/><path d=&#39;M5 25 L13 10 L17.5 18 L20.5 13 L27 25 Z&#39; fill=&#39;%23141414&#39;/></svg>">
     <h1>Trail Resupply</h1>
-    <button id="btn-set" class="iconbtn" aria-label="Settings">⚙️</button>
-  </div>
-  <div id="setrow" class="setrow" hidden>
-    <div class="seg dark" id="s-lang"><button data-v="en">EN</button><button data-v="de">DE</button><button data-v="es">ES</button><button data-v="fr">FR</button></div>
-    <div class="seg dark" id="s-units"><button data-v="metric">km</button><button data-v="imperial">mi</button></div>
+    <button id="t-units" class="toggle" type="button" aria-label="km / mi"></button>
+    <button id="t-lang" class="toggle" type="button" aria-label="Sprache / Language"></button>
   </div>
 </header>
+
+<nav class="tabbar">
+  <button data-v="plan" class="active"><span>🗺</span><i data-i18n="tabPlan"></i></button>
+  <button data-v="strat"><span>📊</span><i data-i18n="tabStrat"></i></button>
+  <button data-v="info"><span>ℹ️</span><i data-i18n="tabInfo"></i></button>
+</nav>
 
 <main>
   <!-- PLANEN -->
   <section id="v-plan" class="view active">
+   <div class="col-a">
     <div class="card">
       <label class="lbl" data-i18n="trail"></label>
       <select id="s-trail"></select>
@@ -52,19 +56,21 @@
 
     <div id="leg" class="card leg" hidden></div>
 
-    <h2 class="sec" data-i18n="nextStops"></h2>
-    <div id="next" class="list"></div>
-
     <div id="route-box" class="card" hidden>
       <h2 class="sec2"><span data-i18n="myRoute"></span> <button id="r-clear" class="link" data-i18n="clear"></button></h2>
       <div id="route"></div>
     </div>
+   </div>
+   <div class="col-b">
+    <h2 class="sec" data-i18n="nextStops"></h2>
+    <div id="next" class="list"></div>
+   </div>
   </section>
 
   <!-- STRATEGIE -->
   <section id="v-strat" class="view">
-    <div class="card" id="strat-head"></div>
-    <div id="strat" class="list"></div>
+    <div class="col-a"><div class="card" id="strat-head"></div></div>
+    <div class="col-b"><div id="strat" class="list"></div></div>
   </section>
 
   <!-- INFO -->
@@ -73,11 +79,6 @@
   </section>
 </main>
 
-<nav class="tabbar">
-  <button data-v="plan" class="active"><span>🗺</span><i data-i18n="tabPlan"></i></button>
-  <button data-v="strat"><span>📊</span><i data-i18n="tabStrat"></i></button>
-  <button data-v="info"><span>ℹ️</span><i data-i18n="tabInfo"></i></button>
-</nav>
 <div id="toast" class="toast"></div>
 <script src="app.js"></script>
 </body>

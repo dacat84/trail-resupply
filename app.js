@@ -170,8 +170,9 @@ function detail(s) {
 function render() {
   $$('[data-i18n]').forEach(e => { e.textContent = t(e.dataset.i18n); });
   document.documentElement.lang = S.lang;
-  $$('#s-lang button').forEach(b => b.classList.toggle('on', b.dataset.v === S.lang));
-  $$('#s-units button').forEach(b => b.classList.toggle('on', b.dataset.v === S.units));
+  const pair = (a, b, on) => on === a ? `<b>${a.toUpperCase()}</b>\u00a0·\u00a0<span>${b.toUpperCase()}</span>` : `<span>${a.toUpperCase()}</span>\u00a0·\u00a0<b>${b.toUpperCase()}</b>`;
+  $('#t-lang').innerHTML = pair('de', 'en', S.lang === 'de' ? 'de' : 'en');
+  $('#t-units').innerHTML = pair('km', 'mi', IMP() ? 'mi' : 'km');
   const tm = trailMeta();
   $('#s-trail').innerHTML = D.trails.map(x => `<option value="${x.id}">${esc(x.name)} · ${x.approx ? '~' : ''}${dist(x.len)}</option>`).join('');
   $('#s-trail').value = S.trail;
@@ -263,9 +264,8 @@ function renderStrat() {
 
 // ---------- Events ----------
 function init() {
-  $('#btn-set').onclick = () => { $('#setrow').hidden = !$('#setrow').hidden; };
-  $$('#s-lang button').forEach(b => b.onclick = () => { S.lang = b.dataset.v; render(); });
-  $$('#s-units button').forEach(b => b.onclick = () => { S.units = b.dataset.v; render(); });
+  $('#t-lang').onclick = () => { S.lang = S.lang === 'de' ? 'en' : 'de'; render(); };
+  $('#t-units').onclick = () => { S.units = IMP() ? 'metric' : 'imperial'; render(); };
   $('#s-trail').onchange = e => { S.trail = e.target.value; S.start = null; S.dest = null; S.open = null; render(); };
   $$('#s-dir button').forEach(b => b.onclick = () => { S.dir = b.dataset.v; S.start = null; S.dest = null; S.open = null; render(); });
   $('#s-start').onchange = e => { S.start = +e.target.value; S.dest = null; S.open = null; render(); };

@@ -114,3 +114,25 @@ input[type=number]{background-image:none}
 .toast{position:fixed;bottom:calc(86px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%) translateY(160px);background:var(--ink);color:var(--gold);border:2px solid var(--gold);padding:9px 14px;transition:transform .25s;z-index:50;font-size:.88rem;font-weight:700}
 .toast.show{transform:translateX(-50%) translateY(0)}
 .empty{color:var(--mute);text-align:center;padding:20px;font-size:.9rem}
+
+/* Umschalter wie im Tracker (DE · EN) */
+.toggle{border:2px solid var(--ink);background:var(--card);box-shadow:2px 2px 0 var(--ink);padding:4px 8px;font-size:.8rem;font-weight:600;cursor:pointer;white-space:nowrap}
+.toggle span{opacity:.4}
+.toggle:active{transform:translate(2px,2px);box-shadow:none}
+
+/* PC / Tablet: zwei Spalten, Tab-Leiste oben in der Kopfzeile */
+@media (min-width:900px){
+  body{padding-bottom:30px}
+  .bar,main{max-width:1180px}
+  main{padding:22px 20px}
+  .view.active{display:grid;grid-template-columns:400px 1fr;gap:28px;align-items:start}
+  #v-info.view.active{display:block;max-width:760px}
+  .col-a{position:sticky;top:90px;max-height:calc(100vh - 110px);overflow:auto;padding:0 8px 8px 0}
+  .col-b .sec{margin-top:0}
+  .col-b{max-width:760px}
+  .tabbar{position:sticky;top:0;bottom:auto;max-width:1180px;margin:0 auto;background:none;border:0;padding:16px 20px 0;justify-content:flex-start}
+  .tabbar button{flex:0 0 auto;flex-direction:row;gap:6px;padding:7px 14px}
+  .tabbar button i{font-size:.9rem}
+  .top{position:relative}
+  .toast{bottom:30px}
+}
