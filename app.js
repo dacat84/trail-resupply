@@ -13,6 +13,8 @@ const T = {
     setDest: 'Set as destination', goOn: 'Continue from here', destSet: 'Destination set', legAdded: 'Leg added to route',
     total: (d, km, days) => `${d} legs · ${km} · ≈ ${days} hiking days`,
     common: 'popular', planFood: 'Plan food for this leg →',
+    routeHeavy: (n, m) => `${n} leg(s) need more than ${m} days of food.`, routeFix: 'Replace with typical plan (max. 6 days)',
+    noStop: 'There is no store in between, carry more or send a box.',
     fromWord: n => `from ${n}`, fillStop: 'extra stop: over 6 days of food otherwise', heavy: '> 6 days food',
     tooMuch: m => `More than ${m} days of food is a heavy carry. Most hikers resupply in between.`,
     kick: 'Resupply planner', dayWord: 'days', store: 'Store', access: 'Getting there', stopHere: 'Hikers stopping here', boxLbl: 'Send a box',
@@ -41,6 +43,8 @@ const T = {
     setDest: 'Als Ziel', goOn: 'Ab hier weiter', destSet: 'Ziel gesetzt', legAdded: 'Etappe zur Route hinzugefügt',
     total: (d, km, days) => `${d} Etappen · ${km} · ≈ ${days} Lauftage`,
     common: 'beliebt', planFood: 'Essen für diese Etappe planen →',
+    routeHeavy: (n, m) => `${n} Etappe(n) brauchen mehr als ${m} Tage Essen.`, routeFix: 'Durch üblichen Plan ersetzen (max. 6 Tage)',
+    noStop: 'Dazwischen gibt es keine Einkaufsmöglichkeit, also mehr tragen oder eine Box schicken.',
     fromWord: n => `ab ${n}`, fillStop: 'Zwischenstopp: sonst über 6 Tage Essen', heavy: '> 6 Tage Essen',
     tooMuch: m => `Mehr als ${m} Tage Essen wird schwer. Die meisten resupplien dazwischen.`,
     kick: 'Resupply-Planer', dayWord: 'Tage', store: 'Laden', access: 'Weg in den Ort', stopHere: 'Hiker halten hier', boxLbl: 'Box schicken',
@@ -69,6 +73,8 @@ const T = {
     setDest: 'Como destino', goOn: 'Seguir desde aquí', destSet: 'Destino fijado', legAdded: 'Etapa añadida a la ruta',
     total: (d, km, days) => `${d} etapas · ${km} · ≈ ${days} días de marcha`,
     common: 'popular', planFood: 'Planear comida para esta etapa →',
+    routeHeavy: (n, m) => `${n} etapa(s) necesitan más de ${m} días de comida.`, routeFix: 'Reemplazar por el plan típico (máx. 6 días)',
+    noStop: 'No hay tienda en medio: carga más o envía un paquete.',
     fromWord: n => `desde ${n}`, fillStop: 'parada extra: si no, más de 6 días de comida', heavy: '> 6 días comida',
     tooMuch: m => `Más de ${m} días de comida pesa mucho. La mayoría se reabastece antes.`,
     kick: 'Planificador de reabastecimiento', dayWord: 'días', store: 'Tienda', access: 'Cómo llegar', stopHere: 'Hikers que paran', boxLbl: 'Enviar paquete',
@@ -92,6 +98,8 @@ const T = {
     setDest: 'Comme destination', goOn: 'Continuer d\'ici', destSet: 'Destination définie', legAdded: 'Étape ajoutée',
     total: (d, km, days) => `${d} étapes · ${km} · ≈ ${days} jours de marche`,
     common: 'populaire', planFood: 'Planifier la nourriture →',
+    routeHeavy: (n, m) => `${n} étape(s) demandent plus de ${m} jours de nourriture.`, routeFix: 'Remplacer par le plan type (max. 6 jours)',
+    noStop: 'Pas de magasin entre les deux : porte plus ou envoie un colis.',
     fromWord: n => `depuis ${n}`, fillStop: 'arrêt en plus : sinon plus de 6 jours de nourriture', heavy: '> 6 jours',
     tooMuch: m => `Plus de ${m} jours de nourriture, c'est lourd. La plupart se ravitaillent entre-temps.`,
     kick: 'Planificateur de ravitaillement', dayWord: 'jours', store: 'Magasin', access: 'Accès', stopHere: 'Randonneurs qui s\'arrêtent', boxLbl: 'Envoyer un colis',
@@ -203,6 +211,7 @@ function render() {
   $('#l-pace').textContent = L().pace(IMP() ? 'mi' : 'km');
   $('#s-pace').value = IMP() ? Math.round(S.pace) : Math.round(S.pace * KM);
   $$('#s-buf button').forEach(b => b.classList.toggle('on', +b.dataset.v === +S.buf));
+  if (S.routeAuto) { const p = typicalPlan(); if (p.length) S.route = planLegs(p); }
   renderNext(); renderLeg(); renderRoute(); renderStrat(); renderHead();
   $('#info').innerHTML = t('infoHtml');
   save();
@@ -249,14 +258,18 @@ function renderRoute() {
   const r = (S.route || []).filter(x => D.stops[x.a] && D.stops[x.b]);
   $('#route-box').hidden = !r.length;
   if (!r.length) return;
-  let tot = 0;
+  let tot = 0, nHeavy = 0;
   $('#route').innerHTML = r.map((x, k) => {
     const a = D.stops[x.a], b = D.stops[x.b], mi = miBetween(a, b); tot += mi;
-    return `<div class="rt"><span>${k + 1}. ${esc(a.name)} → <b>${esc(b.name)}</b></span><small>${dist(mi)} · ${foodDays(mi)} 🍽</small></div>`;
-  }).join('') + `<div class="rt-sum">${esc(L().total(r.length, dist(tot), fmt(walkDays(tot), 0)))}</div>`;
+    const heavy = foodDays(mi) > MAXFOOD; if (heavy) nHeavy++;
+    return `<div class="rt ${heavy ? 'heavy' : ''}"><span>${k + 1}. ${esc(a.name)} → <b>${esc(b.name)}</b></span><small>${dist(mi)} · ${foodDays(mi)} 🍽${heavy ? ' ⚠' : ''}</small></div>`;
+  }).join('') + `<div class="rt-sum">${esc(L().total(r.length, dist(tot), fmt(walkDays(tot), 0)))}</div>`
+    + (nHeavy ? `<p class="warn">${esc(L().routeHeavy(nHeavy, MAXFOOD))}${S.routeAuto ? ' ' + esc(t('noStop')) : ''}</p>${S.routeAuto ? '' : `<button class="btn pri" id="r-fix" style="width:100%;margin-top:8px">${esc(t('routeFix'))}</button>`}` : '');
+  const fix = $('#r-fix');
+  if (fix) fix.onclick = () => { const p = typicalPlan(); S.route = planLegs(p); S.routeAuto = true; render(); toast(t('stratTaken')); };
 }
-function renderStrat() {
-  const tm = trailMeta(), all = trailStops(), avg = all.filter(s => s.avg);
+function typicalPlan() {
+  const all = trailStops(), avg = all.filter(s => s.avg);
   if (avg.length && avg[0] !== all[0]) avg.unshift(all[0]);
   if (avg.length && avg[avg.length - 1] !== all[all.length - 1]) avg.push(all[all.length - 1]);
   // Etappen mit mehr als MAXFOOD Tagen Essen (bei deinem Tempo): meistgenutzten Zwischenstopp einfügen
@@ -272,6 +285,11 @@ function renderStrat() {
     }
     if (!ins) break;
   }
+  return avg;
+}
+const planLegs = avg => { const r = []; for (let k = 1; k < avg.length; k++) r.push({ a: avg[k - 1].i, b: avg[k].i }); return r; };
+function renderStrat() {
+  const tm = trailMeta(), all = trailStops(), avg = typicalPlan();
   const list = avg.length ? avg : all;
   let head = `<h2 class="sec2">${esc(t('stratTitle'))} · ${esc(tm.id)}</h2>`;
   if (tm.id === 'PCT') {
@@ -292,7 +310,7 @@ function renderStrat() {
   }).join('');
   const take = $('#strat-take');
   if (take) take.onclick = () => {
-    S.route = []; for (let k = 1; k < avg.length; k++) S.route.push({ a: avg[k - 1].i, b: avg[k].i });
+    S.route = planLegs(avg); S.routeAuto = true;
     S.start = avg[0].i; S.dest = avg[1] ? avg[1].i : null; save(); render(); toast(t('stratTaken'));
   };
 }
@@ -331,13 +349,13 @@ function init() {
   $('#s-pace').onchange = e => setPace(+e.target.value);
   $$('.stepper button').forEach(b => b.onclick = () => setPace(+$('#s-pace').value + +b.dataset.step));
   $$('#s-buf button').forEach(b => b.onclick = () => { S.buf = +b.dataset.v; render(); });
-  $('#r-clear').onclick = () => { S.route = []; render(); };
+  $('#r-clear').onclick = () => { S.route = []; S.routeAuto = false; render(); };
   const rowClick = e => {
     const row = e.target.closest('.row'); if (!row) return;
     const i = +row.dataset.i, act = e.target.closest('[data-act]');
     if (act && act.dataset.act === 'dest') { S.dest = i; render(); toast(t('destSet')); window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
     if (act && act.dataset.act === 'go') {
-      S.route = S.route || []; S.route.push({ a: startStop().i, b: i });
+      S.route = S.route || []; S.route.push({ a: startStop().i, b: i }); S.routeAuto = false;
       S.start = i; S.dest = null; S.open = null; render(); toast(t('legAdded')); window.scrollTo({ top: 0, behavior: 'smooth' }); return;
     }
     if (e.currentTarget.id === 'next') { S.open = S.open === i ? null : i; renderNext(); save(); }

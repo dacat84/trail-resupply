@@ -137,3 +137,5 @@ input[type=number]{background-image:none}
 .row .d small.heavy{display:block;color:var(--red);font-weight:600;font-size:11px;margin-top:2px}
 .leg .warn{background:#fde3dc;color:#9a2d1d;border-radius:6px;padding:8px 10px;font-size:13px;margin:10px 0 0}
 .far{opacity:.6}
+.rt.heavy small,.rt.heavy b{color:var(--red)}
+.card .warn{background:#fde3dc;color:#9a2d1d;border-radius:6px;padding:8px 10px;font-size:13px;margin:10px 0 0}
