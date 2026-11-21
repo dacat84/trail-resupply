@@ -231,7 +231,7 @@ function renderNext() {
     const heavy = foodDays(mi) > MAXFOOD;
     html += `<div class="row ${open ? 'open' : ''} ${isDest ? 'dest' : ''} ${heavy ? 'far' : ''}" data-i="${s.i}">
       <div class="h">
-        <div class="d"><b>+${dist(mi)}</b><small class="wd">${fmt(wd, 1)} ${t('days')}</small><span class="fd" title="${esc(fdTip(mi))}">${fdTxt(foodDays(mi))} ${CUT}</span>${heavy ? `<small class="heavy">${esc(t('heavy'))}</small>` : ''}</div>
+        <div class="d"><b>+${dist(mi)}</b><small class="wd">${fmt(wd, 1)} ${esc(t('dayWord'))}</small><span class="fd" title="${esc(fdTip(mi))}">${fdTxt(foodDays(mi))} ${CUT}</span>${heavy ? `<small class="heavy">${esc(t('heavy'))}</small>` : ''}</div>
         <div class="n"><strong>${esc(name(s))}${s.use >= 60 ? `<span class="typ">★ ${esc(t('common'))}</span>` : ''}</strong>
           <div class="mini">${svcIcons(s)}</div>
           ${s.use != null ? `<div class="usebar"><i><b style="width:${Math.min(100, s.use)}%"></b></i>${fmt(s.use)} %</div>` : ''}</div>
