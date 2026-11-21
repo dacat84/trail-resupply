@@ -148,3 +148,15 @@ h1,h2,h3,.head p,.row .n strong,.rt b,.path,.stat small{text-wrap:balance}
 .row .d b,.row .d small,.stat b,.usebar{white-space:nowrap}
 .chip{white-space:nowrap}
 .cut{width:1.35em;height:1.35em;vertical-align:-.32em;margin-left:1px}
+
+/* Distanz + Essenstage prominenter */
+.row .d{min-width:84px}
+.row .d small.wd{display:block;font-size:14px;color:var(--ink);opacity:.75;margin-top:1px}
+.fd{display:inline-flex;align-items:center;gap:2px;margin-top:4px;padding:2px 8px 2px 9px;border-radius:999px;background:rgba(224,69,47,.12);color:var(--red);font-weight:700;font-size:15px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.fd .cut{width:1.15em;height:1.15em;vertical-align:0;margin:0}
+.rm{text-align:right;white-space:nowrap}
+.rm b{display:block;font-size:16px;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
+.rt.heavy .rm b{color:var(--red)}
+.rt.heavy .fd{background:var(--red);color:#fff}
+.row.far .fd{background:var(--red);color:#fff}
+.rt{align-items:center}
