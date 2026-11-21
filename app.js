@@ -245,7 +245,7 @@ function render() {
   $('#s-pace').value = FOOD() ? fdTxt(S.carry).replace(',', '.') : (IMP() ? Math.round(S.pace) : Math.round(S.pace * KM));
   $('#s-pace').step = FOOD() ? 0.5 : 1;
   $$('#s-buf button').forEach(b => b.classList.toggle('on', +b.dataset.v === +S.buf));
-  if (S.routeAuto) { const p = typicalPlan(); if (p.length) S.route = planLegs(p); }
+  if (S.routeAuto) { const p = typicalPlan(true); if (p.length) S.route = planLegs(p); }
   renderNext(); renderLeg(); renderRoute(); renderStrat(); renderHead();
   $('#info').innerHTML = t('infoHtml');
   save();
@@ -302,10 +302,13 @@ function renderRoute() {
   }).join('') + `<div class="rt-sum">${esc(FOOD() ? `${r.length} · ${dist(tot)} · ${L().paceTot(paceTxt(tot / av).replace(/\/.*/, ''), paceTxt(mx).replace(/\/.*/, ''))}` : L().total(r.length, dist(tot), fmt(walkDays(tot), 0)))}</div>`
     + (nHeavy ? `<p class="warn">${esc(FOOD() ? L().paceHeavy(nHeavy, paceTxt(HARD).replace(/\/.*/, '')) : L().routeHeavy(nHeavy, MAXFOOD))}${S.routeAuto ? ' ' + esc(t('noStop')) : ''}</p>${S.routeAuto ? '' : `<button class="btn pri" id="r-fix" style="width:100%;margin-top:8px">${esc(t('routeFix'))}</button>`}` : '');
   const fix = $('#r-fix');
-  if (fix) fix.onclick = () => { const p = typicalPlan(); S.route = planLegs(p); S.routeAuto = true; render(); toast(t('stratTaken')); };
+  if (fix) fix.onclick = () => { const p = typicalPlan(true); S.route = planLegs(p); S.routeAuto = true; render(); toast(t('stratTaken')); };
 }
-function typicalPlan() {
-  const all = trailStops(), avg = all.filter(s => s.avg);
+function typicalPlan(fromStart) {
+  // fromStart: ab deinem Start/aktuellen Stop planen (Meine Route), sonst ganzer Trail (Üblich)
+  let all = trailStops();
+  if (fromStart) { const st = startStop(), k = all.indexOf(st); if (k > 0) all = all.slice(k); }
+  const avg = all.filter(s => s.avg);
   if (avg.length && avg[0] !== all[0]) avg.unshift(all[0]);
   if (avg.length && avg[avg.length - 1] !== all[all.length - 1]) avg.push(all[all.length - 1]);
   // Etappen mit mehr als MAXFOOD Tagen Essen (bei deinem Tempo): meistgenutzten Zwischenstopp einfügen
