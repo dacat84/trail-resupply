@@ -4,7 +4,7 @@
 # po (Post), eat (Restaurant/Imbiss), bed (Motel/Hotel/Lodge/Hostel), camp, out (Outfitter), wash (Dusche/Wäsche),
 # use (% der Hiker laut Umfrage), box (% "definitiv Box schicken"), boxRec, avg (im Durchschnittsplan), de, en
 P = [
-("Campo (Südterminus)",0,1.5,"walk",1,1,0,0,0,0,0,13.8,None,False,False,"Start. Großeinkauf vorher in San Diego, in Campo nur ein kleiner Laden.","Start. Do the big shop in San Diego beforehand, Campo only has a small store."),
+("Campo (Südterminus)",0,1.5,"walk",1,1,0,0,1,0,0,13.8,None,False,False,"Start. Die meisten übernachten vorher auf dem Hiker-Campingplatz CLEEF (Camp Lockett) in Campo, ca. 2 km vom Terminus, mit Toiletten und oft Frühstück. Großeinkauf vorher in San Diego, in Campo nur ein kleiner Laden.","Start. Most hikers spend the night before at the CLEEF hiker campground (Camp Lockett) in Campo, about 1.5 mi from the terminus, with toilets and often breakfast. Do the big shop in San Diego beforehand, Campo only has a small store."),
 ("Lake Morena",20,0,"trail",1,0,1,0,1,0,1,12.6,None,False,False,"Campground und kleiner Laden direkt am Trail, gut für den ersten Abend.","Campground and small store right on trail, good first night."),
 ("Mount Laguna",45.1,0.4,"walk",2,1,1,1,1,0,0,48,None,False,False,"General Store mit Post nebenan, Lodge und Café. Oft nur Snacks auffüllen.","General store with post office next door, lodge and café. Often just a snack top-up."),
 ("Julian",77.3,12,"hitch",2,1,1,1,0,0,0,81.9,None,False,True,"Hitch ab Scissors Crossing (Hwy 78), manchmal zäh. Lebensmittelladen, Post, Gratis-Kuchen bei Mom's.","Hitch from Scissors Crossing (Hwy 78), can be slow. Grocery, post office, free pie at Mom's."),

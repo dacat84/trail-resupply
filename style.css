@@ -99,7 +99,9 @@ input[type=number]{background-image:none}
 .leg a{font-size:13px;font-weight:600;display:inline-block;margin-top:8px}
 
 .rt{display:grid;grid-template-columns:1fr auto;gap:2px 8px;padding:8px 0;border-top:1px solid rgba(20,32,42,.1);font-size:14px}
-.rt small{color:var(--mute);font-variant-numeric:tabular-nums}
+.rt small{color:var(--mute);font-variant-numeric:tabular-nums;white-space:nowrap;padding-top:2px}
+.rt b{display:block;font-weight:700;line-height:1.25}
+.rt .rf{display:block;font-style:normal;font-size:12px;color:var(--mute);margin-top:1px}
 .rt-sum{margin-top:8px;font-weight:600;color:var(--red)}
 
 .stat{display:grid;grid-template-columns:1fr 1fr;gap:0 16px;margin-top:6px}
@@ -139,3 +141,9 @@ input[type=number]{background-image:none}
 .far{opacity:.6}
 .rt.heavy small,.rt.heavy b{color:var(--red)}
 .card .warn{background:#fde3dc;color:#9a2d1d;border-radius:6px;padding:8px 10px;font-size:13px;margin:10px 0 0}
+
+/* schönere Zeilenumbrüche */
+body{text-wrap:pretty;overflow-wrap:break-word}
+h1,h2,h3,.head p,.row .n strong,.rt b,.path,.stat small{text-wrap:balance}
+.row .d b,.row .d small,.stat b,.usebar{white-space:nowrap}
+.chip{white-space:nowrap}

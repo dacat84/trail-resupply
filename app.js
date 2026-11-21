@@ -8,10 +8,10 @@ const T = {
     onTrail: 'right on trail', walk: d => `${d} walk`, hitch: d => `${d} hitch`, shuttle: d => `${d} shuttle/bus`, boat: d => `boat/ferry, ${d}`,
     gro: ['no store', 'small store / gas station', 'market / general store', 'supermarket'],
     po: 'post office', eat: 'food', bed: 'lodging', camp: 'camping', out: 'outfitter', wash: 'shower/laundry',
-    use: p => `${p} % of hikers stop here`, box: p => `📦 ${p} % send a box`, boxRec: '📦 box recommended', est: 'estimated',
+    use: p => `${p} % of hikers stop here`, box: p => `📦 ${p} % send a box`, boxRec: '📦 box recommended', est: 'estimated',
     days: 'd', walkDays: 'hiking days', foodDays: 'days of food', dist: 'distance',
     setDest: 'Set as destination', goOn: 'Continue from here', destSet: 'Destination set', legAdded: 'Leg added to route',
-    total: (d, km, days) => `${d} legs · ${km} · ≈ ${days} hiking days`,
+    total: (d, km, days) => `${d} legs · ${km} · ≈ ${days} hiking days`,
     common: 'popular', planFood: 'Plan food for this leg →',
     routeHeavy: (n, m) => `${n} leg(s) need more than ${m} days of food.`, routeFix: 'Replace with typical plan (max. 6 days)',
     noStop: 'There is no store in between, carry more or send a box.',
@@ -21,7 +21,7 @@ const T = {
     subLeg: (a, b, d, f) => `From ${a} to ${b} · ${d} · ${f} days of food`, subStart: a => `Starting at ${a}`,
     stratTitle: 'How most hikers do it', stratNone: 'No survey data for this trail yet. All known stops are listed.',
     stratTake: 'Use this as my route', stratTaken: 'Typical plan copied to your route',
-    stratStats: ['mailed a few boxes (1–10 %)', 'mailed some (10–50 %)', 'mailed most', 'mailed none / all'],
+    stratStats: ['mailed a few boxes (1⁠–⁠10 %)', 'mailed some (10⁠–⁠50 %)', 'mailed most', 'mailed none / all'],
     stratAvg: ['avg. daily distance', 'avg. resupplies'],
     stratFoot: 'Survey: Halfway Anywhere PCT Hiker Survey 2025 (resupply strategy, stop usage), 2024 (daily miles, resupplies).',
     seg: (d, days) => `+${d} · ${days} d`,
@@ -38,10 +38,10 @@ const T = {
     onTrail: 'direkt am Trail', walk: d => `${d} zu Fuß`, hitch: d => `${d} trampen`, shuttle: d => `${d} Shuttle/Bus`, boat: d => `Boot/Fähre, ${d}`,
     gro: ['kein Laden', 'kleiner Laden / Tankstelle', 'Markt / General Store', 'Supermarkt'],
     po: 'Post', eat: 'Essen', bed: 'Unterkunft', camp: 'Camping', out: 'Outfitter', wash: 'Dusche/Wäsche',
-    use: p => `${p} % der Hiker halten hier`, box: p => `📦 ${p} % schicken eine Box`, boxRec: '📦 Box empfohlen', est: 'geschätzt',
+    use: p => `${p} % der Hiker halten hier`, box: p => `📦 ${p} % schicken eine Box`, boxRec: '📦 Box empfohlen', est: 'geschätzt',
     days: 'T', walkDays: 'Lauftage', foodDays: 'Tage Essen', dist: 'Distanz',
     setDest: 'Als Ziel', goOn: 'Ab hier weiter', destSet: 'Ziel gesetzt', legAdded: 'Etappe zur Route hinzugefügt',
-    total: (d, km, days) => `${d} Etappen · ${km} · ≈ ${days} Lauftage`,
+    total: (d, km, days) => `${d} Etappen · ${km} · ≈ ${days} Lauftage`,
     common: 'beliebt', planFood: 'Essen für diese Etappe planen →',
     routeHeavy: (n, m) => `${n} Etappe(n) brauchen mehr als ${m} Tage Essen.`, routeFix: 'Durch üblichen Plan ersetzen (max. 6 Tage)',
     noStop: 'Dazwischen gibt es keine Einkaufsmöglichkeit, also mehr tragen oder eine Box schicken.',
@@ -51,7 +51,7 @@ const T = {
     subLeg: (a, b, d, f) => `Von ${a} nach ${b} · ${d} · ${f} Tage Essen`, subStart: a => `Start in ${a}`,
     stratTitle: 'So machen es die meisten', stratNone: 'Für diesen Trail gibt es noch keine Umfragedaten. Alle bekannten Stops sind aufgelistet.',
     stratTake: 'Als meine Route übernehmen', stratTaken: 'Typischer Plan in deine Route übernommen',
-    stratStats: ['ein paar Boxen geschickt (1–10 %)', 'einige geschickt (10–50 %)', 'die meisten geschickt', 'keine / alle geschickt'],
+    stratStats: ['ein paar Boxen geschickt (1⁠–⁠10 %)', 'einige geschickt (10⁠–⁠50 %)', 'die meisten geschickt', 'keine / alle geschickt'],
     stratAvg: ['Ø Tagesdistanz', 'Ø Resupplys'],
     stratFoot: 'Umfrage: Halfway Anywhere PCT Hiker Survey 2025 (Resupply-Strategie, Nutzung der Stops), 2024 (Tagesmeilen, Resupplys).',
     seg: (d, days) => `+${d} · ${days} T`,
@@ -68,10 +68,10 @@ const T = {
     onTrail: 'junto al trail', walk: d => `${d} a pie`, hitch: d => `${d} autostop`, shuttle: d => `${d} shuttle/bus`, boat: d => `barco/ferry, ${d}`,
     gro: ['sin tienda', 'tienda pequeña / gasolinera', 'mercado / tienda general', 'supermercado'],
     po: 'correos', eat: 'comida', bed: 'alojamiento', camp: 'camping', out: 'tienda outdoor', wash: 'ducha/lavandería',
-    use: p => `${p} % de los hikers paran aquí`, box: p => `📦 ${p} % envían paquete`, boxRec: '📦 paquete recomendado', est: 'estimado',
+    use: p => `${p} % de los hikers paran aquí`, box: p => `📦 ${p} % envían paquete`, boxRec: '📦 paquete recomendado', est: 'estimado',
     days: 'd', walkDays: 'días de marcha', foodDays: 'días de comida', dist: 'distancia',
     setDest: 'Como destino', goOn: 'Seguir desde aquí', destSet: 'Destino fijado', legAdded: 'Etapa añadida a la ruta',
-    total: (d, km, days) => `${d} etapas · ${km} · ≈ ${days} días de marcha`,
+    total: (d, km, days) => `${d} etapas · ${km} · ≈ ${days} días de marcha`,
     common: 'popular', planFood: 'Planear comida para esta etapa →',
     routeHeavy: (n, m) => `${n} etapa(s) necesitan más de ${m} días de comida.`, routeFix: 'Reemplazar por el plan típico (máx. 6 días)',
     noStop: 'No hay tienda en medio: carga más o envía un paquete.',
@@ -81,7 +81,7 @@ const T = {
     subLeg: (a, b, d, f) => `De ${a} a ${b} · ${d} · ${f} días de comida`, subStart: a => `Inicio en ${a}`,
     stratTitle: 'Cómo lo hace la mayoría', stratNone: 'Aún no hay datos de encuesta para este trail. Se listan todas las paradas conocidas.',
     stratTake: 'Usar como mi ruta', stratTaken: 'Plan típico copiado a tu ruta',
-    stratStats: ['enviaron pocos paquetes (1–10 %)', 'enviaron algunos (10–50 %)', 'enviaron la mayoría', 'ninguno / todos'],
+    stratStats: ['enviaron pocos paquetes (1⁠–⁠10 %)', 'enviaron algunos (10⁠–⁠50 %)', 'enviaron la mayoría', 'ninguno / todos'],
     stratAvg: ['distancia diaria media', 'reabastecimientos medios'],
     stratFoot: 'Encuesta: Halfway Anywhere PCT Hiker Survey 2025 (estrategia, uso de paradas), 2024 (millas diarias, reabastecimientos).',
     seg: (d, days) => `+${d} · ${days} d`,
@@ -93,10 +93,10 @@ const T = {
     onTrail: 'sur le trail', walk: d => `${d} à pied`, hitch: d => `${d} en stop`, shuttle: d => `${d} navette/bus`, boat: d => `bateau/ferry, ${d}`,
     gro: ['pas de magasin', 'petit magasin / station', 'épicerie / general store', 'supermarché'],
     po: 'poste', eat: 'restauration', bed: 'hébergement', camp: 'camping', out: 'magasin outdoor', wash: 'douche/laverie',
-    use: p => `${p} % des randonneurs s'arrêtent ici`, box: p => `📦 ${p} % envoient un colis`, boxRec: '📦 colis recommandé', est: 'estimé',
+    use: p => `${p} % des randonneurs s'arrêtent ici`, box: p => `📦 ${p} % envoient un colis`, boxRec: '📦 colis recommandé', est: 'estimé',
     days: 'j', walkDays: 'jours de marche', foodDays: 'jours de nourriture', dist: 'distance',
     setDest: 'Comme destination', goOn: 'Continuer d\'ici', destSet: 'Destination définie', legAdded: 'Étape ajoutée',
-    total: (d, km, days) => `${d} étapes · ${km} · ≈ ${days} jours de marche`,
+    total: (d, km, days) => `${d} étapes · ${km} · ≈ ${days} jours de marche`,
     common: 'populaire', planFood: 'Planifier la nourriture →',
     routeHeavy: (n, m) => `${n} étape(s) demandent plus de ${m} jours de nourriture.`, routeFix: 'Remplacer par le plan type (max. 6 jours)',
     noStop: 'Pas de magasin entre les deux : porte plus ou envoie un colis.',
@@ -106,7 +106,7 @@ const T = {
     subLeg: (a, b, d, f) => `De ${a} à ${b} · ${d} · ${f} jours de nourriture`, subStart: a => `Départ à ${a}`,
     stratTitle: 'Comment font la plupart', stratNone: 'Pas encore de données d\'enquête pour ce trail. Toutes les étapes connues sont listées.',
     stratTake: 'Utiliser comme mon itinéraire', stratTaken: 'Plan type copié dans ton itinéraire',
-    stratStats: ['quelques colis (1–10 %)', 'certains (10–50 %)', 'la plupart', 'aucun / tous'],
+    stratStats: ['quelques colis (1⁠–⁠10 %)', 'certains (10⁠–⁠50 %)', 'la plupart', 'aucun / tous'],
     stratAvg: ['distance moyenne par jour', 'ravitaillements moyens'],
     stratFoot: 'Enquête : Halfway Anywhere PCT Hiker Survey 2025 (stratégie, usage des étapes), 2024 (miles/jour, ravitaillements).',
     seg: (d, days) => `+${d} · ${days} j`,
@@ -128,7 +128,7 @@ const L = () => T[S.lang] || T.en;
 const t = k => L()[k] ?? T.en[k] ?? k;
 const IMP = () => S.units === 'imperial';
 const fmt = (x, d = 0) => (x == null || !isFinite(x)) ? '–' : x.toLocaleString({ de: 'de-DE', es: 'es-ES', fr: 'fr-FR' }[S.lang] || 'en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
-const dist = mi => IMP() ? `${fmt(mi, mi < 10 ? 1 : 0)} mi` : `${fmt(mi * KM, mi * KM < 10 ? 1 : 0)} km`;
+const dist = mi => IMP() ? `${fmt(mi, mi < 10 ? 1 : 0)} mi` : `${fmt(mi * KM, mi * KM < 10 ? 1 : 0)} km`;
 function toast(m) { const e = $('#toast'); e.textContent = m; e.classList.add('show'); clearTimeout(toast.t); toast.t = setTimeout(() => e.classList.remove('show'), 1700); }
 
 let D = null;
@@ -228,10 +228,10 @@ function renderNext() {
     const heavy = foodDays(mi) > MAXFOOD;
     html += `<div class="row ${open ? 'open' : ''} ${isDest ? 'dest' : ''} ${heavy ? 'far' : ''}" data-i="${s.i}">
       <div class="h">
-        <div class="d"><b>+${dist(mi)}</b><small>${fmt(wd, 1)} ${t('days')} → ${foodDays(mi)} 🍽</small>${heavy ? `<small class="heavy">${esc(t('heavy'))}</small>` : ''}</div>
+        <div class="d"><b>+${dist(mi)}</b><small>${fmt(wd, 1)} ${t('days')} → ${foodDays(mi)} 🍽</small>${heavy ? `<small class="heavy">${esc(t('heavy'))}</small>` : ''}</div>
         <div class="n"><strong>${esc(name(s))}${s.use >= 60 ? `<span class="typ">★ ${esc(t('common'))}</span>` : ''}</strong>
           <div class="mini">${svcIcons(s)}</div>
-          ${s.use != null ? `<div class="usebar"><i><b style="width:${Math.min(100, s.use)}%"></b></i>${fmt(s.use)} %</div>` : ''}</div>
+          ${s.use != null ? `<div class="usebar"><i><b style="width:${Math.min(100, s.use)}%"></b></i>${fmt(s.use)} %</div>` : ''}</div>
       </div>
       <div class="x">${detail(s)}
         <div class="btns"><button class="btn" data-act="dest">${esc(t('setDest'))}</button><button class="btn pri" data-act="go">${esc(t('goOn'))}</button></div>
@@ -250,7 +250,7 @@ function renderLeg() {
   $('#leg').innerHTML = `<div class="path">${esc(st.name)} → ${esc(d.name)}</div>
     <div class="big"><span class="t">${foodDays(mi)} ${esc(t('dayWord'))}</span><span class="d">${esc(t('foodDays'))}</span></div>
     <div class="km"><b>${dist(mi)}</b> · ${fmt(walkDays(mi), 1)} ${esc(t('walkDays'))}</div>
-    ${r(t('store'), t('gro')[d.s.gro])}${r(t('access'), accText(d).replace(/^\S+\s/, ''))}${r(t('stopHere'), d.use != null ? fmt(d.use) + ' %' : '')}${r(t('boxLbl'), d.box ? fmt(d.box) + ' %' : (d.boxRec ? '✓' : ''))}
+    ${r(t('store'), t('gro')[d.s.gro])}${r(t('access'), accText(d).replace(/^\S+\s/, ''))}${r(t('stopHere'), d.use != null ? fmt(d.use) + ' %' : '')}${r(t('boxLbl'), d.box ? fmt(d.box) + ' %' : (d.boxRec ? '✓' : ''))}
     ${foodDays(mi) > MAXFOOD ? `<p class="warn">${esc(L().tooMuch(MAXFOOD))}</p>` : ''}
     <a href="https://dacat84.github.io/trail-food/" target="_blank" rel="noopener">${esc(t('planFood'))}</a>`;
 }
@@ -262,7 +262,7 @@ function renderRoute() {
   $('#route').innerHTML = r.map((x, k) => {
     const a = D.stops[x.a], b = D.stops[x.b], mi = miBetween(a, b); tot += mi;
     const heavy = foodDays(mi) > MAXFOOD; if (heavy) nHeavy++;
-    return `<div class="rt ${heavy ? 'heavy' : ''}"><span>${k + 1}. ${esc(a.name)} → <b>${esc(b.name)}</b></span><small>${dist(mi)} · ${foodDays(mi)} 🍽${heavy ? ' ⚠' : ''}</small></div>`;
+    return `<div class="rt ${heavy ? 'heavy' : ''}"><span><b>${k + 1}. ${esc(b.name)}</b><em class="rf">${esc(L().fromWord(a.name))}</em></span><small>${dist(mi)} · ${foodDays(mi)} 🍽${heavy ? ' ⚠' : ''}</small></div>`;
   }).join('') + `<div class="rt-sum">${esc(L().total(r.length, dist(tot), fmt(walkDays(tot), 0)))}</div>`
     + (nHeavy ? `<p class="warn">${esc(L().routeHeavy(nHeavy, MAXFOOD))}${S.routeAuto ? ' ' + esc(t('noStop')) : ''}</p>${S.routeAuto ? '' : `<button class="btn pri" id="r-fix" style="width:100%;margin-top:8px">${esc(t('routeFix'))}</button>`}` : '');
   const fix = $('#r-fix');
@@ -294,7 +294,7 @@ function renderStrat() {
   let head = `<h2 class="sec2">${esc(t('stratTitle'))} · ${esc(tm.id)}</h2>`;
   if (tm.id === 'PCT') {
     const [a, b, c, d] = t('stratStats');
-    head += `<div class="stat"><div><b>38 %</b><small>${esc(a)}</small></div><div><b>42 %</b><small>${esc(b)}</small></div><div><b>11 %</b><small>${esc(c)}</small></div><div><b>6 % / 3 %</b><small>${esc(d)}</small></div>
+    head += `<div class="stat"><div><b>38 %</b><small>${esc(a)}</small></div><div><b>42 %</b><small>${esc(b)}</small></div><div><b>11 %</b><small>${esc(c)}</small></div><div><b>6 % / 3 %</b><small>${esc(d)}</small></div>
       <div><b>${IMP() ? '19 mi' : '31 km'}</b><small>${esc(t('stratAvg')[0])}</small></div><div><b>29</b><small>${esc(t('stratAvg')[1])}</small></div></div>
       <p class="note" style="color:var(--mute);font-size:.75rem">${esc(t('stratFoot'))}</p>`;
   } else head += `<p class="note">${esc(t('stratNone'))}</p>`;
@@ -304,8 +304,8 @@ function renderStrat() {
   $('#strat').innerHTML = list.map(s => {
     const mi = prev ? miBetween(prev, s) : 0; const prevName = prev ? prev.name : null; prev = s;
     return `<div class="row" data-i="${s.i}"><div class="h">
-      <div class="d"><b>${mi ? '+' + dist(mi) : '🚩'}</b><small>${mi ? fmt(walkDays(mi), 1) + ' ' + t('days') : ''}</small></div>
-      <div class="n">${prevName ? `<div class="from">${esc(L().fromWord(prevName))}${s.fill ? ` · <span class="fillb">${esc(t('fillStop'))}</span>` : ''}</div>` : ''}<strong>${esc(s.name)}</strong><div class="mini">${svcIcons(s)}</div>${s.use != null ? `<div class="usebar"><i><b style="width:${Math.min(100, s.use)}%"></b></i>${fmt(s.use)} %${s.box ? ` · 📦 ${fmt(s.box)} %` : ''}</div>` : ''}</div>
+      <div class="d"><b>${mi ? '+' + dist(mi) : '🚩'}</b><small>${mi ? fmt(walkDays(mi), 1) + ' ' + t('days') : ''}</small></div>
+      <div class="n">${prevName ? `<div class="from">${esc(L().fromWord(prevName))}${s.fill ? ` · <span class="fillb">${esc(t('fillStop'))}</span>` : ''}</div>` : ''}<strong>${esc(s.name)}</strong><div class="mini">${svcIcons(s)}</div>${s.use != null ? `<div class="usebar"><i><b style="width:${Math.min(100, s.use)}%"></b></i>${fmt(s.use)} %${s.box ? ` · 📦 ${fmt(s.box)} %` : ''}</div>` : ''}</div>
     </div><div class="x">${detail(s)}</div></div>`;
   }).join('');
   const take = $('#strat-take');
