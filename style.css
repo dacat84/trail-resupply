@@ -147,3 +147,4 @@ body{text-wrap:pretty;overflow-wrap:break-word}
 h1,h2,h3,.head p,.row .n strong,.rt b,.path,.stat small{text-wrap:balance}
 .row .d b,.row .d small,.stat b,.usebar{white-space:nowrap}
 .chip{white-space:nowrap}
+.cut{width:1.35em;height:1.35em;vertical-align:-.32em;margin-left:1px}

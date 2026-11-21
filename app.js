@@ -127,6 +127,7 @@ function save() { try { localStorage.setItem(LS, JSON.stringify(S)); } catch (e)
 const L = () => T[S.lang] || T.en;
 const t = k => L()[k] ?? T.en[k] ?? k;
 const IMP = () => S.units === 'imperial';
+const CUT = '<svg class="cut" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><g transform="rotate(45 12 12)"><path d="M10.6 1Q16.4 4 13.6 13.2H10.4Z"/><rect x="10.4" y="12.4" width="3.2" height="10.4" rx="1.6"/></g><g transform="rotate(-45 12 12)"><rect x="8.6" y="1" width="1.6" height="6" rx=".8"/><rect x="11.2" y="1" width="1.6" height="6" rx=".8"/><rect x="13.8" y="1" width="1.6" height="6" rx=".8"/><path d="M8.6 6.4H15.4V7.6Q15.4 10.4 13.5 11V12.4H10.5V11Q8.6 10.4 8.6 7.6Z"/><rect x="10.5" y="11" width="3" height="11.8" rx="1.5"/></g></svg>';
 const fmt = (x, d = 0) => (x == null || !isFinite(x)) ? '–' : x.toLocaleString({ de: 'de-DE', es: 'es-ES', fr: 'fr-FR' }[S.lang] || 'en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
 const dist = mi => IMP() ? `${fmt(mi, mi < 10 ? 1 : 0)} mi` : `${fmt(mi * KM, mi * KM < 10 ? 1 : 0)} km`;
 function toast(m) { const e = $('#toast'); e.textContent = m; e.classList.add('show'); clearTimeout(toast.t); toast.t = setTimeout(() => e.classList.remove('show'), 1700); }
@@ -228,7 +229,7 @@ function renderNext() {
     const heavy = foodDays(mi) > MAXFOOD;
     html += `<div class="row ${open ? 'open' : ''} ${isDest ? 'dest' : ''} ${heavy ? 'far' : ''}" data-i="${s.i}">
       <div class="h">
-        <div class="d"><b>+${dist(mi)}</b><small>${fmt(wd, 1)} ${t('days')} → ${foodDays(mi)} 🍴</small>${heavy ? `<small class="heavy">${esc(t('heavy'))}</small>` : ''}</div>
+        <div class="d"><b>+${dist(mi)}</b><small>${fmt(wd, 1)} ${t('days')} → ${foodDays(mi)} ${CUT}</small>${heavy ? `<small class="heavy">${esc(t('heavy'))}</small>` : ''}</div>
         <div class="n"><strong>${esc(name(s))}${s.use >= 60 ? `<span class="typ">★ ${esc(t('common'))}</span>` : ''}</strong>
           <div class="mini">${svcIcons(s)}</div>
           ${s.use != null ? `<div class="usebar"><i><b style="width:${Math.min(100, s.use)}%"></b></i>${fmt(s.use)} %</div>` : ''}</div>
@@ -262,7 +263,7 @@ function renderRoute() {
   $('#route').innerHTML = r.map((x, k) => {
     const a = D.stops[x.a], b = D.stops[x.b], mi = miBetween(a, b); tot += mi;
     const heavy = foodDays(mi) > MAXFOOD; if (heavy) nHeavy++;
-    return `<div class="rt ${heavy ? 'heavy' : ''}"><span><b>${k + 1}. ${esc(b.name)}</b><em class="rf">${esc(L().fromWord(a.name))}</em></span><small>${dist(mi)} · ${foodDays(mi)} 🍴${heavy ? ' ⚠' : ''}</small></div>`;
+    return `<div class="rt ${heavy ? 'heavy' : ''}"><span><b>${k + 1}. ${esc(b.name)}</b><em class="rf">${esc(L().fromWord(a.name))}</em></span><small>${dist(mi)} · ${foodDays(mi)} ${CUT}${heavy ? ' ⚠' : ''}</small></div>`;
   }).join('') + `<div class="rt-sum">${esc(L().total(r.length, dist(tot), fmt(walkDays(tot), 0)))}</div>`
     + (nHeavy ? `<p class="warn">${esc(L().routeHeavy(nHeavy, MAXFOOD))}${S.routeAuto ? ' ' + esc(t('noStop')) : ''}</p>${S.routeAuto ? '' : `<button class="btn pri" id="r-fix" style="width:100%;margin-top:8px">${esc(t('routeFix'))}</button>`}` : '');
   const fix = $('#r-fix');
