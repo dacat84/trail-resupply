@@ -13,6 +13,8 @@ const T = {
     setDest: 'Set as destination', goOn: 'Continue from here', destSet: 'Destination set', legAdded: 'Leg added to route',
     total: (d, km, days) => `${d} legs · ${km} · ≈ ${days} hiking days`,
     common: 'popular', planFood: 'Plan food for this leg →',
+    kick: 'Resupply planner', dayWord: 'days', store: 'Store', access: 'Getting there', stopHere: 'Hikers stopping here', boxLbl: 'Send a box',
+    subLeg: (a, b, d, f) => `From ${a} to ${b} · ${d} · ${f} days of food`, subStart: a => `Starting at ${a}`,
     stratTitle: 'How most hikers do it', stratNone: 'No survey data for this trail yet. All known stops are listed.',
     stratTake: 'Use this as my route', stratTaken: 'Typical plan copied to your route',
     stratStats: ['mailed a few boxes (1–10 %)', 'mailed some (10–50 %)', 'mailed most', 'mailed none / all'],
@@ -37,6 +39,8 @@ const T = {
     setDest: 'Als Ziel', goOn: 'Ab hier weiter', destSet: 'Ziel gesetzt', legAdded: 'Etappe zur Route hinzugefügt',
     total: (d, km, days) => `${d} Etappen · ${km} · ≈ ${days} Lauftage`,
     common: 'beliebt', planFood: 'Essen für diese Etappe planen →',
+    kick: 'Resupply-Planer', dayWord: 'Tage', store: 'Laden', access: 'Weg in den Ort', stopHere: 'Hiker halten hier', boxLbl: 'Box schicken',
+    subLeg: (a, b, d, f) => `Von ${a} nach ${b} · ${d} · ${f} Tage Essen`, subStart: a => `Start in ${a}`,
     stratTitle: 'So machen es die meisten', stratNone: 'Für diesen Trail gibt es noch keine Umfragedaten. Alle bekannten Stops sind aufgelistet.',
     stratTake: 'Als meine Route übernehmen', stratTaken: 'Typischer Plan in deine Route übernommen',
     stratStats: ['ein paar Boxen geschickt (1–10 %)', 'einige geschickt (10–50 %)', 'die meisten geschickt', 'keine / alle geschickt'],
@@ -61,6 +65,8 @@ const T = {
     setDest: 'Como destino', goOn: 'Seguir desde aquí', destSet: 'Destino fijado', legAdded: 'Etapa añadida a la ruta',
     total: (d, km, days) => `${d} etapas · ${km} · ≈ ${days} días de marcha`,
     common: 'popular', planFood: 'Planear comida para esta etapa →',
+    kick: 'Planificador de reabastecimiento', dayWord: 'días', store: 'Tienda', access: 'Cómo llegar', stopHere: 'Hikers que paran', boxLbl: 'Enviar paquete',
+    subLeg: (a, b, d, f) => `De ${a} a ${b} · ${d} · ${f} días de comida`, subStart: a => `Inicio en ${a}`,
     stratTitle: 'Cómo lo hace la mayoría', stratNone: 'Aún no hay datos de encuesta para este trail. Se listan todas las paradas conocidas.',
     stratTake: 'Usar como mi ruta', stratTaken: 'Plan típico copiado a tu ruta',
     stratStats: ['enviaron pocos paquetes (1–10 %)', 'enviaron algunos (10–50 %)', 'enviaron la mayoría', 'ninguno / todos'],
@@ -80,6 +86,8 @@ const T = {
     setDest: 'Comme destination', goOn: 'Continuer d\'ici', destSet: 'Destination définie', legAdded: 'Étape ajoutée',
     total: (d, km, days) => `${d} étapes · ${km} · ≈ ${days} jours de marche`,
     common: 'populaire', planFood: 'Planifier la nourriture →',
+    kick: 'Planificateur de ravitaillement', dayWord: 'jours', store: 'Magasin', access: 'Accès', stopHere: 'Randonneurs qui s\'arrêtent', boxLbl: 'Envoyer un colis',
+    subLeg: (a, b, d, f) => `De ${a} à ${b} · ${d} · ${f} jours de nourriture`, subStart: a => `Départ à ${a}`,
     stratTitle: 'Comment font la plupart', stratNone: 'Pas encore de données d\'enquête pour ce trail. Toutes les étapes connues sont listées.',
     stratTake: 'Utiliser comme mon itinéraire', stratTaken: 'Plan type copié dans ton itinéraire',
     stratStats: ['quelques colis (1–10 %)', 'certains (10–50 %)', 'la plupart', 'aucun / tous'],
@@ -186,7 +194,7 @@ function render() {
   $('#l-pace').textContent = L().pace(IMP() ? 'mi' : 'km');
   $('#s-pace').value = IMP() ? Math.round(S.pace) : Math.round(S.pace * KM);
   $$('#s-buf button').forEach(b => b.classList.toggle('on', +b.dataset.v === +S.buf));
-  renderNext(); renderLeg(); renderRoute(); renderStrat();
+  renderNext(); renderLeg(); renderRoute(); renderStrat(); renderHead();
   $('#info').innerHTML = t('infoHtml');
   save();
 }
@@ -219,9 +227,12 @@ function renderLeg() {
   $('#leg').hidden = !ok;
   if (!ok) return;
   const mi = miBetween(st, d);
+  const r = (k, v) => v ? `<div class="r"><span>${esc(k)}</span><b>${esc(v)}</b></div>` : '';
   $('#leg').innerHTML = `<div class="path">${esc(st.name)} → ${esc(d.name)}</div>
-    <div class="big"><div><b>${dist(mi)}</b><small>${esc(t('dist'))}</small></div><div><b>${fmt(walkDays(mi), 1)}</b><small>${esc(t('walkDays'))}</small></div><div><b>${foodDays(mi)}</b><small>${esc(t('foodDays'))}</small></div></div>
-    <p style="margin:8px 0 0"><a href="https://dacat84.github.io/trail-food/" target="_blank" rel="noopener">${esc(t('planFood'))}</a></p>`;
+    <div class="big"><span class="t">${foodDays(mi)} ${esc(t('dayWord'))}</span><span class="d">${esc(t('foodDays'))}</span></div>
+    <div class="km"><b>${dist(mi)}</b> · ${fmt(walkDays(mi), 1)} ${esc(t('walkDays'))}</div>
+    ${r(t('store'), t('gro')[d.s.gro])}${r(t('access'), accText(d).replace(/^\S+\s/, ''))}${r(t('stopHere'), d.use != null ? fmt(d.use) + ' %' : '')}${r(t('boxLbl'), d.box ? fmt(d.box) + ' %' : (d.boxRec ? '✓' : ''))}
+    <a href="https://dacat84.github.io/trail-food/" target="_blank" rel="noopener">${esc(t('planFood'))}</a>`;
 }
 function renderRoute() {
   const r = (S.route || []).filter(x => D.stops[x.a] && D.stops[x.b]);
@@ -262,6 +273,29 @@ function renderStrat() {
   };
 }
 
+// ---------- Kopf und Hintergrund (wie die Reportage im PCT-Tracker) ----------
+const BG = { PCT: [36.58, -118.29], CDT: [43.1, -109.6], AT: [35.6, -83.5], CT: [37.85, -107.6], JMT: [37.2, -118.7], AZT: [36.1, -112.1],
+  PNT: [48.75, -121.2], LT: [44.54, -72.81], TRT: [39.05, -120.0], WON: [46.85, -121.76], SHT: [47.7, -90.9] };
+function renderBg() {
+  const c = BG[S.trail] || BG.PCT, z = 11, n = 2 ** z;
+  const x = Math.floor((c[1] + 180) / 360 * n), lat = c[0] * Math.PI / 180;
+  const y = Math.floor((1 - Math.log(Math.tan(lat) + 1 / Math.cos(lat)) / Math.PI) / 2 * n);
+  const key = S.trail; if (renderBg.k === key) return; renderBg.k = key;
+  let h = '';
+  for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++)
+    h += `<img alt="" onload="this.style.opacity=1" onerror="this.remove()" src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/${z}/${y + dy}/${x + dx}">`;
+  $('#bg').innerHTML = h;
+}
+function renderHead() {
+  const tm = trailMeta(), st = startStop(), d = S.dest != null ? D.stops[S.dest] : null;
+  const ok = d && d.trail === S.trail && nextStops().some(x => x.i === d.i);
+  $('#kick').textContent = `${t('kick')} · ${tm.id} · ${S.dir === 'rev' ? tm.rev : tm.fwd}`;
+  $('#htitle').textContent = tm.name;
+  $('#hsub').textContent = ok ? L().subLeg(st.name, d.name, dist(miBetween(st, d)), foodDays(miBetween(st, d))) : L().subStart(st.name);
+  document.title = `${tm.name} · Trail Resupply`;
+  renderBg();
+}
+
 // ---------- Events ----------
 function init() {
   $('#t-lang').onclick = () => { S.lang = S.lang === 'de' ? 'en' : 'de'; render(); };
@@ -287,8 +321,8 @@ function init() {
   };
   $('#next').addEventListener('click', rowClick);
   $('#strat').addEventListener('click', rowClick);
-  $$('.tabbar button').forEach(b => b.onclick = () => {
-    $$('.tabbar button').forEach(x => x.classList.toggle('active', x === b));
+  $$('#nav .tab').forEach(b => b.onclick = () => {
+    $$('#nav .tab').forEach(x => x.classList.toggle('active', x === b));
     $$('.view').forEach(v => v.classList.toggle('active', v.id === 'v-' + b.dataset.v));
     window.scrollTo(0, 0);
   });
