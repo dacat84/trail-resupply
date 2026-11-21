@@ -101,7 +101,8 @@ input[type=number]{background-image:none}
 .rt{display:grid;grid-template-columns:1fr auto;gap:2px 8px;padding:8px 0;border-top:1px solid rgba(20,32,42,.1);font-size:14px}
 .rt small{color:var(--mute);font-variant-numeric:tabular-nums;white-space:nowrap;padding-top:2px}
 .rt b{display:block;font-weight:700;line-height:1.25}
-.rt .rf{display:block;font-style:normal;font-size:12px;color:var(--mute);margin-top:1px}
+.rt .rf{display:block;font-style:normal;font-size:12px;color:var(--mute);margin-bottom:1px}
+.rt b{font-size:16px}
 .rt-sum{margin-top:8px;font-weight:600;color:var(--red)}
 
 .stat{display:grid;grid-template-columns:1fr 1fr;gap:0 16px;margin-top:6px}
