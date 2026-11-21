@@ -154,7 +154,9 @@ function nextStops() {
 }
 const miBetween = (a, b) => Math.abs(b.mile - a.mile);
 const walkDays = mi => mi / S.pace;
-const foodDays = mi => Math.max(1, Math.ceil(walkDays(mi) + +S.buf - 1e-9));
+const foodDays = mi => Math.max(1, Math.ceil((walkDays(mi) + +S.buf) * 2 - 1e-9) / 2);
+const fdTxt = x => fmt(x, x % 1 ? 1 : 0);
+const fdTip = mi => `${fmt(walkDays(mi), 1)} ${t('walkDays')} + ${fmt(+S.buf, S.buf % 1 ? 1 : 0)} ${S.lang === 'de' ? 'Reserve' : 'buffer'}`;
 const MAXFOOD = 6; // mehr als 6 Tage Essen trägt kaum jemand
 const note = s => (S.lang === 'de' ? s.de : s.en) || s.en || s.de || '';
 const name = s => s.name;
@@ -229,7 +231,7 @@ function renderNext() {
     const heavy = foodDays(mi) > MAXFOOD;
     html += `<div class="row ${open ? 'open' : ''} ${isDest ? 'dest' : ''} ${heavy ? 'far' : ''}" data-i="${s.i}">
       <div class="h">
-        <div class="d"><b>+${dist(mi)}</b><small class="wd">${fmt(wd, 1)} ${t('days')}</small><span class="fd">${foodDays(mi)} ${CUT}</span>${heavy ? `<small class="heavy">${esc(t('heavy'))}</small>` : ''}</div>
+        <div class="d"><b>+${dist(mi)}</b><small class="wd">${fmt(wd, 1)} ${t('days')}</small><span class="fd" title="${esc(fdTip(mi))}">${fdTxt(foodDays(mi))} ${t('days')} ${CUT}</span>${heavy ? `<small class="heavy">${esc(t('heavy'))}</small>` : ''}</div>
         <div class="n"><strong>${esc(name(s))}${s.use >= 60 ? `<span class="typ">★ ${esc(t('common'))}</span>` : ''}</strong>
           <div class="mini">${svcIcons(s)}</div>
           ${s.use != null ? `<div class="usebar"><i><b style="width:${Math.min(100, s.use)}%"></b></i>${fmt(s.use)} %</div>` : ''}</div>
@@ -249,7 +251,7 @@ function renderLeg() {
   const mi = miBetween(st, d);
   const r = (k, v) => v ? `<div class="r"><span>${esc(k)}</span><b>${esc(v)}</b></div>` : '';
   $('#leg').innerHTML = `<div class="path">${esc(st.name)} → ${esc(d.name)}</div>
-    <div class="big"><span class="t">${foodDays(mi)} ${esc(t('dayWord'))}</span><span class="d">${esc(t('foodDays'))}</span></div>
+    <div class="big"><span class="t">${fdTxt(foodDays(mi))} ${esc(t('dayWord'))}</span><span class="d">${esc(t('foodDays'))}</span></div>
     <div class="km"><b>${dist(mi)}</b> · ${fmt(walkDays(mi), 1)} ${esc(t('walkDays'))}</div>
     ${r(t('store'), t('gro')[d.s.gro])}${r(t('access'), accText(d).replace(/^\S+\s/, ''))}${r(t('stopHere'), d.use != null ? fmt(d.use) + ' %' : '')}${r(t('boxLbl'), d.box ? fmt(d.box) + ' %' : (d.boxRec ? '✓' : ''))}
     ${foodDays(mi) > MAXFOOD ? `<p class="warn">${esc(L().tooMuch(MAXFOOD))}</p>` : ''}
@@ -263,7 +265,7 @@ function renderRoute() {
   $('#route').innerHTML = r.map((x, k) => {
     const a = D.stops[x.a], b = D.stops[x.b], mi = miBetween(a, b); tot += mi;
     const heavy = foodDays(mi) > MAXFOOD; if (heavy) nHeavy++;
-    return `<div class="rt ${heavy ? 'heavy' : ''}"><span><b>${k + 1}. ${esc(b.name)}</b><em class="rf">${esc(L().fromWord(a.name))}</em></span><div class="rm"><b>${dist(mi)}</b><span class="fd">${foodDays(mi)} ${CUT}${heavy ? ' ⚠' : ''}</span></div></div>`;
+    return `<div class="rt ${heavy ? 'heavy' : ''}"><span><b>${k + 1}. ${esc(b.name)}</b><em class="rf">${esc(L().fromWord(a.name))}</em></span><div class="rm"><b>${dist(mi)}</b><span class="fd" title="${esc(fdTip(mi))}">${fdTxt(foodDays(mi))} ${t('days')} ${CUT}${heavy ? ' ⚠' : ''}</span></div></div>`;
   }).join('') + `<div class="rt-sum">${esc(L().total(r.length, dist(tot), fmt(walkDays(tot), 0)))}</div>`
     + (nHeavy ? `<p class="warn">${esc(L().routeHeavy(nHeavy, MAXFOOD))}${S.routeAuto ? ' ' + esc(t('noStop')) : ''}</p>${S.routeAuto ? '' : `<button class="btn pri" id="r-fix" style="width:100%;margin-top:8px">${esc(t('routeFix'))}</button>`}` : '');
   const fix = $('#r-fix');
@@ -334,7 +336,7 @@ function renderHead() {
   const ok = d && d.trail === S.trail && nextStops().some(x => x.i === d.i);
   $('#kick').textContent = `${t('kick')} · ${tm.id} · ${S.dir === 'rev' ? tm.rev : tm.fwd}`;
   $('#htitle').textContent = tm.name;
-  $('#hsub').textContent = ok ? L().subLeg(st.name, d.name, dist(miBetween(st, d)), foodDays(miBetween(st, d))) : L().subStart(st.name);
+  $('#hsub').textContent = ok ? L().subLeg(st.name, d.name, dist(miBetween(st, d)), fdTxt(foodDays(miBetween(st, d)))) : L().subStart(st.name);
   document.title = `${tm.name} · Trail Resupply`;
   renderBg();
 }
