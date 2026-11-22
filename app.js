@@ -17,7 +17,7 @@ const T = {
     noStop: 'There is no store in between, carry more or send a box.',
     fromWord: n => `from ${n}`, fillStop: 'extra stop: over 6 days of food otherwise', heavy: '> 6 days food',
     tooMuch: m => `More than ${m} days of food is a heavy carry. Most hikers resupply in between.`,
-    bufWord: 'buffer', breakfast: 'breakfast', dinner: 'dinner', autoSep: 'then the typical plan', between: 'in between', modeLbl: 'Plan by', beta: 'experimental', mKm: 'km per day', mFood: 'days of food', carry: 'Days of food (max.)', perDay: '/day', needPace: 'needed pace', relaxed: 'pack less', ownTip: p => `Short leg: food days at your ${p}`, prevTip: p => `Short leg: food days at ${p} like the leg before`, relaxedTip: 'Short leg: even at an easy pace you need less food than that.', paceHeavy: (n, k) => `${n} leg(s) need more than ${k} per day. Carry more food or add a stop.`, paceTot: (a, m) => `Ø ${a} · max. ${m} per day`, paceTip: (d, b) => `${d} days of food − ${b} buffer`,
+    bufWord: 'buffer', breakfast: 'breakfast', dinner: 'dinner', autoSep: 'then the typical plan', between: 'in between', terrainNote: x => `Terrain factor (estimate): ${x} pace vs. your setting. Snow, heat or blowdowns can easily double the time.`, sec_desert: 'Desert', sec_sierra: 'Sierra', sec_norcal: 'NorCal', sec_oregon: 'Oregon', sec_wa: 'Washington', modeLbl: 'Plan by', beta: 'experimental', mKm: 'km per day', mFood: 'days of food', carry: 'Days of food (max.)', perDay: '/day', needPace: 'needed pace', relaxed: 'pack less', ownTip: p => `Short leg: food days at your ${p}`, prevTip: p => `Short leg: food days at ${p} like the leg before`, relaxedTip: 'Short leg: even at an easy pace you need less food than that.', paceHeavy: (n, k) => `${n} leg(s) need more than ${k} per day. Carry more food or add a stop.`, paceTot: (a, m) => `Ø ${a} · max. ${m} per day`, paceTip: (d, b) => `${d} days of food − ${b} buffer`,
     kick: 'Resupply planner', dayWord: 'days', store: 'Store', access: 'Getting there', stopHere: 'Hikers stopping here', boxLbl: 'Send a box',
     subLeg: (a, b, d, f) => `From ${a} to ${b} · ${d} · ${f} days of food`, subStart: a => `Starting at ${a}`,
     stratTitle: 'How most hikers do it', stratNone: 'No survey data for this trail yet. All known stops are listed.',
@@ -28,8 +28,9 @@ const T = {
     seg: (d, days) => `+${d} · ${days} d`,
     noNext: 'No further stops in this direction.',
     infoHtml: `<h2>What this is</h2><p>A quick resupply planner for long trails. Choose trail, direction and where you are, set your daily distance, and see what's next: how far, how many days, what each town has and how most hikers handle it.</p>
+<h2>A mile is not a mile</h2><p>Days are only a rough guide. On the PCT the page uses an estimated terrain factor: Sierra about 25 % slower, Oregon about 10 % faster, Washington about 10 % slower than your setting. Snow, heat, fords, blowdowns or bad weather can easily double that. When in doubt, plan a buffer.</p><h2>Access points</h2><p>A stop is the point on trail where you leave it. If several towns are reached from there (e.g. Red's Meadow and Mammoth Lakes, Echo Lake and South Lake Tahoe), they are listed in the note. Miles follow FarOut and shift slightly with reroutes.</p>
 <h2>Legend</h2><div class="legend"><span>🛒</span><span>supermarket</span><span>🏪</span><span>market / general store</span><span>⛽</span><span>small store / gas station</span><span>📮</span><span>post office</span><span>🍔</span><span>restaurant / food</span><span>🛏</span><span>motel, hotel, lodge, hostel</span><span>⛺</span><span>camping</span><span>🎒</span><span>outfitter</span><span>🚿</span><span>shower / laundry</span><span>📦</span><span>sending a box is common or recommended</span></div>
-<h2>Data</h2><p><b>PCT</b>: stop usage and box percentages from the Halfway Anywhere PCT Hiker Survey 2025, miles and notes partly from The Trek's 2026 PCT resupply strategy, services from my own research. <b>Other trails</b>: services estimated from store size (marked "estimated"), no usage data.</p>
+<h2>Data</h2><p><b>PCT</b>: stop usage and box percentages from the Halfway Anywhere PCT Hiker Survey 2025, miles per FarOut (via The Trek's 2026 PCT resupply strategy), notes and services from own research and forum feedback, services from my own research. <b>Other trails</b>: services estimated from store size (marked "estimated"), no usage data.</p>
 <p>No guarantee. Businesses, hours and road access change every season. Always double-check in FarOut.</p>
 <h2>Food</h2><p>For what to buy, see the companion <a href="https://dacat84.github.io/trail-food/">Trail Food Planner</a> (based on GearSkeptic's Hiker Food sheet).</p>`,
   },
@@ -48,7 +49,7 @@ const T = {
     noStop: 'Dazwischen gibt es keine Einkaufsmöglichkeit, also mehr tragen oder eine Box schicken.',
     fromWord: n => `ab ${n}`, fillStop: 'Zwischenstopp: sonst über 6 Tage Essen', heavy: '> 6 Tage Essen',
     tooMuch: m => `Mehr als ${m} Tage Essen wird schwer. Die meisten resupplien dazwischen.`,
-    bufWord: 'Reserve', breakfast: 'Frühstück', dinner: 'Abendessen', autoSep: 'weiter nach üblichem Plan', between: 'dazwischen', modeLbl: 'Planen nach', beta: 'experimentell', mKm: 'km pro Tag', mFood: 'Tage Essen', carry: 'Tage Essen (max.)', perDay: '/Tag', needPace: 'nötiges Tempo', relaxed: 'weniger', ownTip: p => `Kurze Etappe: Essenstage bei deinen ${p}`, prevTip: p => `Kurze Etappe: Essenstage bei ${p} wie auf der Etappe davor`, relaxedTip: 'Kurze Etappe: selbst locker gelaufen brauchst du weniger Essen.', paceHeavy: (n, k) => `${n} Etappe(n) brauchen mehr als ${k} pro Tag. Mehr Essen einpacken oder Zwischenstopp.`, paceTot: (a, m) => `Ø ${a} · max. ${m} pro Tag`, paceTip: (d, b) => `${d} Tage Essen − ${b} Reserve`,
+    bufWord: 'Reserve', breakfast: 'Frühstück', dinner: 'Abendessen', autoSep: 'weiter nach üblichem Plan', between: 'dazwischen', terrainNote: x => `Geländefaktor (Schätzung): ${x} Tempo gegenüber deiner Einstellung. Schnee, Hitze oder Blowdowns können die Zeit locker verdoppeln.`, sec_desert: 'Wüste', sec_sierra: 'Sierra', sec_norcal: 'NorCal', sec_oregon: 'Oregon', sec_wa: 'Washington', modeLbl: 'Planen nach', beta: 'experimentell', mKm: 'km pro Tag', mFood: 'Tage Essen', carry: 'Tage Essen (max.)', perDay: '/Tag', needPace: 'nötiges Tempo', relaxed: 'weniger', ownTip: p => `Kurze Etappe: Essenstage bei deinen ${p}`, prevTip: p => `Kurze Etappe: Essenstage bei ${p} wie auf der Etappe davor`, relaxedTip: 'Kurze Etappe: selbst locker gelaufen brauchst du weniger Essen.', paceHeavy: (n, k) => `${n} Etappe(n) brauchen mehr als ${k} pro Tag. Mehr Essen einpacken oder Zwischenstopp.`, paceTot: (a, m) => `Ø ${a} · max. ${m} pro Tag`, paceTip: (d, b) => `${d} Tage Essen − ${b} Reserve`,
     kick: 'Resupply-Planer', dayWord: 'Tage', store: 'Laden', access: 'Weg in den Ort', stopHere: 'Hiker halten hier', boxLbl: 'Box schicken',
     subLeg: (a, b, d, f) => `Von ${a} nach ${b} · ${d} · ${f} Tage Essen`, subStart: a => `Start in ${a}`,
     stratTitle: 'So machen es die meisten', stratNone: 'Für diesen Trail gibt es noch keine Umfragedaten. Alle bekannten Stops sind aufgelistet.',
@@ -59,8 +60,9 @@ const T = {
     seg: (d, days) => `+${d} · ${days} T`,
     noNext: 'In dieser Richtung kommen keine weiteren Stops.',
     infoHtml: `<h2>Worum es geht</h2><p>Ein schneller Resupply-Planer für Langstrecken-Trails. Trail, Richtung und deinen Standort wählen, Tagesdistanz einstellen, und du siehst, was als Nächstes kommt: wie weit, wie viele Tage, was es im Ort gibt und wie es die meisten machen.</p>
+<h2>Meile ist nicht Meile</h2><p>Die Tage sind nur ein grober Anhaltspunkt. Auf dem PCT rechnet die Seite mit einem geschätzten Geländefaktor: Sierra ca. 25 % langsamer, Oregon ca. 10 % schneller, Washington ca. 10 % langsamer als deine Einstellung. Schnee, Hitze, Furten, Blowdowns oder schlechtes Wetter können das leicht verdoppeln. Plane im Zweifel Reserve ein.</p><h2>Zugangspunkte</h2><p>Ein Stop ist der Punkt am Trail, von dem du abgehst. Gibt es dort mehrere Orte (z. B. Red's Meadow und Mammoth Lakes, Echo Lake und South Lake Tahoe), stehen sie in der Notiz. Meilen nach FarOut, sie ändern sich durch Umleitungen immer mal leicht.</p>
 <h2>Legende</h2><div class="legend"><span>🛒</span><span>Supermarkt</span><span>🏪</span><span>Markt / General Store</span><span>⛽</span><span>kleiner Laden / Tankstelle</span><span>📮</span><span>Post</span><span>🍔</span><span>Restaurant / Essen</span><span>🛏</span><span>Motel, Hotel, Lodge, Hostel</span><span>⛺</span><span>Camping</span><span>🎒</span><span>Outfitter</span><span>🚿</span><span>Dusche / Wäsche</span><span>📦</span><span>Box schicken ist üblich oder empfohlen</span></div>
-<h2>Daten</h2><p><b>PCT</b>: Nutzung der Stops und Box-Anteile aus der Halfway Anywhere PCT Hiker Survey 2025, Meilen und Notizen teils aus der PCT-Resupply-Strategie 2026 von The Trek, Services aus eigener Recherche. <b>Andere Trails</b>: Services aus der Ladengröße geschätzt (markiert mit „geschätzt“), keine Nutzungsdaten.</p>
+<h2>Daten</h2><p><b>PCT</b>: Nutzung der Stops und Box-Anteile aus der Halfway Anywhere PCT Hiker Survey 2025, Meilen nach FarOut (über die PCT-Resupply-Strategie 2026 von The Trek), Notizen und Services aus eigener Recherche und Forums-Feedback, Services aus eigener Recherche. <b>Andere Trails</b>: Services aus der Ladengröße geschätzt (markiert mit „geschätzt“), keine Nutzungsdaten.</p>
 <p>Ohne Gewähr. Läden, Öffnungszeiten und Straßen ändern sich jede Saison. Immer in FarOut gegenchecken.</p>
 <h2>Essen</h2><p>Was du einkaufst, planst du mit dem <a href="https://dacat84.github.io/trail-food/">Trail Food Planer</a> (auf Basis von GearSkeptics Hiker-Food-Tabelle).</p>`,
   },
@@ -79,7 +81,7 @@ const T = {
     noStop: 'No hay tienda en medio: carga más o envía un paquete.',
     fromWord: n => `desde ${n}`, fillStop: 'parada extra: si no, más de 6 días de comida', heavy: '> 6 días comida',
     tooMuch: m => `Más de ${m} días de comida pesa mucho. La mayoría se reabastece antes.`,
-    bufWord: 'reserva', breakfast: 'desayuno', dinner: 'cena', autoSep: 'después, el plan típico', between: 'entre medio', modeLbl: 'Planificar por', beta: 'experimental', mKm: 'km por día', mFood: 'días de comida', carry: 'Días de comida (máx.)', perDay: '/día', needPace: 'ritmo necesario', relaxed: 'menos', ownTip: p => `Etapa corta: días de comida a tu ritmo de ${p}`, prevTip: p => `Etapa corta: días de comida a ${p} como en la anterior`, relaxedTip: 'Etapa corta: incluso a ritmo tranquilo necesitas menos comida.', paceHeavy: (n, k) => `${n} etapa(s) necesitan más de ${k} por día.`, paceTot: (a, m) => `Ø ${a} · máx. ${m} por día`, paceTip: (d, b) => `${d} días de comida − ${b} reserva`,
+    bufWord: 'reserva', breakfast: 'desayuno', dinner: 'cena', autoSep: 'después, el plan típico', between: 'entre medio', terrainNote: x => `Factor de terreno (estimación): ${x} de ritmo frente a tu ajuste.`, sec_desert: 'Desierto', sec_sierra: 'Sierra', sec_norcal: 'NorCal', sec_oregon: 'Oregón', sec_wa: 'Washington', modeLbl: 'Planificar por', beta: 'experimental', mKm: 'km por día', mFood: 'días de comida', carry: 'Días de comida (máx.)', perDay: '/día', needPace: 'ritmo necesario', relaxed: 'menos', ownTip: p => `Etapa corta: días de comida a tu ritmo de ${p}`, prevTip: p => `Etapa corta: días de comida a ${p} como en la anterior`, relaxedTip: 'Etapa corta: incluso a ritmo tranquilo necesitas menos comida.', paceHeavy: (n, k) => `${n} etapa(s) necesitan más de ${k} por día.`, paceTot: (a, m) => `Ø ${a} · máx. ${m} por día`, paceTip: (d, b) => `${d} días de comida − ${b} reserva`,
     kick: 'Planificador de reabastecimiento', dayWord: 'días', store: 'Tienda', access: 'Cómo llegar', stopHere: 'Hikers que paran', boxLbl: 'Enviar paquete',
     subLeg: (a, b, d, f) => `De ${a} a ${b} · ${d} · ${f} días de comida`, subStart: a => `Inicio en ${a}`,
     stratTitle: 'Cómo lo hace la mayoría', stratNone: 'Aún no hay datos de encuesta para este trail. Se listan todas las paradas conocidas.',
@@ -105,7 +107,7 @@ const T = {
     noStop: 'Pas de magasin entre les deux : porte plus ou envoie un colis.',
     fromWord: n => `depuis ${n}`, fillStop: 'arrêt en plus : sinon plus de 6 jours de nourriture', heavy: '> 6 jours',
     tooMuch: m => `Plus de ${m} jours de nourriture, c'est lourd. La plupart se ravitaillent entre-temps.`,
-    bufWord: 'réserve', breakfast: 'petit-déj.', dinner: 'dîner', autoSep: 'ensuite, le plan type', between: 'entre les deux', modeLbl: 'Planifier par', beta: 'expérimental', mKm: 'km par jour', mFood: 'jours de nourriture', carry: 'Jours de nourriture (max.)', perDay: '/jour', needPace: 'rythme nécessaire', relaxed: 'moins', ownTip: p => `Étape courte : jours de nourriture à ton rythme de ${p}`, prevTip: p => `Étape courte : jours de nourriture à ${p} comme l'étape d'avant`, relaxedTip: 'Étape courte : même tranquille, il faut moins de nourriture.', paceHeavy: (n, k) => `${n} étape(s) demandent plus de ${k} par jour.`, paceTot: (a, m) => `Ø ${a} · max. ${m} par jour`, paceTip: (d, b) => `${d} jours de nourriture − ${b} réserve`,
+    bufWord: 'réserve', breakfast: 'petit-déj.', dinner: 'dîner', autoSep: 'ensuite, le plan type', between: 'entre les deux', terrainNote: x => `Facteur terrain (estimation) : ${x} de rythme par rapport à ton réglage.`, sec_desert: 'Désert', sec_sierra: 'Sierra', sec_norcal: 'NorCal', sec_oregon: 'Oregon', sec_wa: 'Washington', modeLbl: 'Planifier par', beta: 'expérimental', mKm: 'km par jour', mFood: 'jours de nourriture', carry: 'Jours de nourriture (max.)', perDay: '/jour', needPace: 'rythme nécessaire', relaxed: 'moins', ownTip: p => `Étape courte : jours de nourriture à ton rythme de ${p}`, prevTip: p => `Étape courte : jours de nourriture à ${p} comme l'étape d'avant`, relaxedTip: 'Étape courte : même tranquille, il faut moins de nourriture.', paceHeavy: (n, k) => `${n} étape(s) demandent plus de ${k} par jour.`, paceTot: (a, m) => `Ø ${a} · max. ${m} par jour`, paceTip: (d, b) => `${d} jours de nourriture − ${b} réserve`,
     kick: 'Planificateur de ravitaillement', dayWord: 'jours', store: 'Magasin', access: 'Accès', stopHere: 'Randonneurs qui s\'arrêtent', boxLbl: 'Envoyer un colis',
     subLeg: (a, b, d, f) => `De ${a} à ${b} · ${d} · ${f} jours de nourriture`, subStart: a => `Départ à ${a}`,
     stratTitle: 'Comment font la plupart', stratNone: 'Pas encore de données d\'enquête pour ce trail. Toutes les étapes connues sont listées.',
@@ -137,7 +139,7 @@ const dist = mi => IMP() ? `${fmt(mi, mi < 10 ? 1 : 0)} mi` : `${fmt(mi * KM, m
 function toast(m) { const e = $('#toast'); e.textContent = m; e.classList.add('show'); clearTimeout(toast.t); toast.t = setTimeout(() => e.classList.remove('show'), 1700); }
 
 let D = null;
-fetch('data/resupply.json').then(r => r.json()).then(d => { D = d; D.stops.forEach((s, i) => s.i = i); init(); render(); })
+fetch('data/resupply.json').then(r => r.json()).then(d => { D = d; D.stops.forEach((s, i) => s.i = i); if (S.dataVer !== D.ver) { S.start = null; S.dest = null; S.open = null; S.fixed = []; S.routeAuto = true; S.dataVer = D.ver; } init(); render(); })
   .catch(e => { $('main').innerHTML = `<p class="empty">Could not load data (${esc(e.message)})</p>`; });
 
 // ---------- Logik ----------
@@ -157,30 +159,41 @@ function nextStops() {
   return trailStops().filter(x => rev ? x.mile < s.mile : x.mile > s.mile);
 }
 const miBetween = (a, b) => Math.abs(b.mile - a.mile);
-const walkDays = mi => mi / S.pace;
+// Geländefaktor (Schätzung): Tempo relativ zu deiner Tagesdistanz, PCT nach Abschnitten (NOBO-Meilen)
+const TERRAIN = { PCT: [[0, 1, 'desert'], [702, 0.75, 'sierra'], [1018, 1, 'norcal'], [1692, 1.1, 'oregon'], [2147, 0.9, 'wa']] };
+function tf(a, b) {
+  const T = a && TERRAIN[a.trail]; if (!T || !b) return 1;
+  const lo = Math.min(a.mile, b.mile), hi = Math.max(a.mile, b.mile);
+  if (hi - lo < 0.1) { let f = 1; T.forEach(x => { if (lo >= x[0]) f = x[1]; }); return f; }
+  let eff = 0;
+  T.forEach((x, k) => { const s0 = x[0], s1 = k + 1 < T.length ? T[k + 1][0] : 1e9; const ov = Math.min(hi, s1) - Math.max(lo, s0); if (ov > 0) eff += ov / x[1]; });
+  return (hi - lo) / eff;
+}
+const tfNames = (a, b) => { const T = a && TERRAIN[a.trail]; if (!T || !b) return []; const lo = Math.min(a.mile, b.mile), hi = Math.max(a.mile, b.mile); return T.filter((x, k) => x[1] !== 1 && Math.min(hi, k + 1 < T.length ? T[k + 1][0] : 1e9) - Math.max(lo, x[0]) > 0).map(x => x); };
+const walkDays = (mi, a, b) => mi / (S.pace * tf(a, b));
 // Mahlzeiten im Ort: Frühstück am Abfahrtsort, Abendessen am Zielort (je ⅓ Tag), wenn es dort Essen gibt
 const MEAL = 1 / 3;
 const hasEat = x => !!(x && x.s && x.s.eat);
 const meals = (a, b) => (hasEat(a) ? MEAL : 0) + (hasEat(b) ? MEAL : 0);
 const halfUp = x => Math.max(0.5, Math.ceil(x * 2 - 1e-9) / 2);
-const foodDays = (mi, a, b, pace = S.pace) => halfUp(mi / pace - meals(a, b) + +S.buf);
+const foodDays = (mi, a, b, pace = S.pace) => halfUp(mi / (pace * tf(a, b)) - meals(a, b) + +S.buf);
 const FOOD = () => S.mode === 'food';
 const HARD = 40 / KM, EASY = 20 / KM; // mi/day: ab 40 km/Tag hart, unter 20 km/Tag locker
 const avail = (a, b) => Math.max(0.5, S.carry - S.buf + meals(a, b));
 const needPace = (mi, a, b) => mi / avail(a, b);
 const paceTxt = v => `${fmt(IMP() ? v : v * KM)}\u00a0${IMP() ? 'mi' : 'km'}${t('perDay')}`;
-const legHeavy = (mi, a, b) => FOOD() ? needPace(mi, a, b) > HARD : foodDays(mi, a, b) > MAXFOOD;
+const legHeavy = (mi, a, b) => FOOD() ? needPace(mi, a, b) > HARD * tf(a, b) : foodDays(mi, a, b) > MAXFOOD;
 const bufTxt = () => `${fmt(+S.buf, S.buf % 1 ? 1 : 0)} ${t('bufWord')}`;
 const mealTxt = (a, b, sign) => [hasEat(a) ? `${sign} ${t('breakfast')}` : '', hasEat(b) ? `${sign} ${t('dinner')}` : ''].filter(Boolean).join(' ');
-const fdTip = (mi, a, b, pace = S.pace) => `${fmt(mi / pace, 1)} ${t('walkDays')} ${mealTxt(a, b, '−')} + ${bufTxt()}`.replace(/\s+/g, ' ');
+const fdTip = (mi, a, b, pace = S.pace) => `${fmt(mi / (pace * tf(a, b)), 1)} ${t('walkDays')} ${mealTxt(a, b, '−')} + ${bufTxt()}`.replace(/\s+/g, ' ');
 const pill = (mi, warn, prev, a, b) => {
   if (!FOOD()) return `<span class="fd" title="${esc(fdTip(mi, a, b))}">${fdTxt(foodDays(mi, a, b))}\u00a0${CUT}${warn ? '\u00a0⚠' : ''}</span>`;
   const v = needPace(mi, a, b);
   const tip = `${t('needPace')}: ${fdTxt(S.carry)} ${t('foodDays')} − ${bufTxt()} ${mealTxt(a, b, '+')}`.replace(/\s+/g, ' ');
-  if (v < EASY) {
-    const pp = prev > EASY ? prev : S.pace; // Tempo der vorherigen Etappe, sonst deine km/Tag-Einstellung
-    const lead = prev > EASY ? L().prevTip(paceTxt(pp)) : L().ownTip(paceTxt(pp));
-    return `<span class="pz"><span class="fd easy" title="${esc(lead)}">${paceTxt(pp)}</span><span class="fd easy" title="${esc(lead + ': ' + fdTip(mi, a, b, pp))}">${fdTxt(foodDays(mi, a, b, pp))}\u00a0${CUT}</span></span>`;
+  if (v < EASY * tf(a, b)) {
+    const pp = prev > EASY ? prev : S.pace; // flaches Tempo // Tempo der vorherigen Etappe, sonst deine km/Tag-Einstellung
+    const ppx = pp * tf(a, b), lead = prev > EASY ? L().prevTip(paceTxt(ppx)) : L().ownTip(paceTxt(ppx));
+    return `<span class="pz"><span class="fd easy" title="${esc(lead)}">${paceTxt(ppx)}</span><span class="fd easy" title="${esc(lead + ': ' + fdTip(mi, a, b, pp))}">${fdTxt(foodDays(mi, a, b, pp))}\u00a0${CUT}</span></span>`;
   }
   return `<span class="fd pc" title="${esc(tip)}">${paceTxt(v)}${warn ? '\u00a0⚠' : ''}</span>`;
 };
@@ -266,10 +279,10 @@ function renderNext() {
   if (!list.length) { $('#next').innerHTML = `<p class="empty">${esc(t('noNext'))}</p>`; return; }
   const maxDays = 12;
   const inLeg = (S.route || []).find(x => x.b === st.i && D.stops[x.a]);
-  const prevP = inLeg ? needPace(miBetween(D.stops[inLeg.a], st), D.stops[inLeg.a], st) : 0;
+  const prevP = inLeg ? needPace(miBetween(D.stops[inLeg.a], st), D.stops[inLeg.a], st) / tf(D.stops[inLeg.a], st) : 0;
   let html = '';
   for (const s of list) {
-    const mi = miBetween(st, s), wd = walkDays(mi);
+    const mi = miBetween(st, s), wd = walkDays(mi, st, s);
     if (wd > maxDays && html) break;
     const open = S.open === s.i, isDest = S.dest === s.i;
     const heavy = legHeavy(mi, st, s);
@@ -296,7 +309,7 @@ function renderLeg() {
   const r = (k, v) => v ? `<div class="r"><span>${esc(k)}</span><b>${esc(v)}</b></div>` : '';
   $('#leg').innerHTML = `<div class="path">${esc(st.name)} → ${esc(d.name)}</div>
     <div class="big">${FOOD() ? `<span class="t">${paceTxt(needPace(mi, st, d))}</span><span class="d">${esc(t('needPace'))}</span>` : `<span class="t">${fdTxt(foodDays(mi, st, d))} ${esc(t('dayWord'))}</span><span class="d">${esc(t('foodDays'))}</span>`}</div>
-    <div class="km"><b>${dist(mi)}</b> · ${fmt(walkDays(mi), 1)} ${esc(t('walkDays'))}</div>
+    <div class="km"><b>${dist(mi)}</b> · ${fmt(walkDays(mi, st, d), 1)} ${esc(t('walkDays'))}</div>${tfNames(st, d).length ? `<p class="note tnote">${esc(L().terrainNote(tfNames(st, d).map(x => `${t('sec_' + x[2])} ${x[1] < 1 ? '−' : '+'}${Math.round(Math.abs(1 - x[1]) * 100)} %`).join(', ')))}</p>` : ''}
     ${r(t('store'), t('gro')[d.s.gro])}${r(t('access'), accText(d).replace(/^\S+\s/, ''))}${r(t('stopHere'), d.use != null ? fmt(d.use) + ' %' : '')}${r(t('boxLbl'), d.box ? fmt(d.box) + ' %' : (d.boxRec ? '✓' : ''))}
     ${legHeavy(mi, st, d) ? `<p class="warn">${esc(FOOD() ? L().paceHeavy(1, paceTxt(HARD).replace(/\/.*/, '')) : L().tooMuch(MAXFOOD))}</p>` : ''}
     <a href="https://dacat84.github.io/trail-food/" target="_blank" rel="noopener">${esc(t('planFood'))}</a>`;
@@ -314,13 +327,13 @@ function renderRoute() {
   const r = (S.route || []).filter(x => D.stops[x.a] && D.stops[x.b]);
   $('#route-box').hidden = !r.length;
   if (!r.length) return;
-  let tot = 0, nHeavy = 0, mx = 0, prev = 0, av = 0;
+  let tot = 0, nHeavy = 0, mx = 0, prev = 0, av = 0, wdt = 0;
   const nf = (S.fixed || []).length;
   $('#route').innerHTML = r.map((x, k) => {
     const a = D.stops[x.a], b = D.stops[x.b], mi = miBetween(a, b); tot += mi;
     const heavy = legHeavy(mi, a, b); if (heavy) nHeavy++; av += avail(a, b); if (FOOD() && needPace(mi, a, b) > mx) mx = needPace(mi, a, b);
-    return `${k === nf && nf && S.routeAuto ? `<div class="rt-sep">${esc(t('autoSep'))}</div>` : ''}<div class="rt ${heavy ? 'heavy' : ''}"><span><em class="rf">${k + 1} · ${esc(L().fromWord(a.name))}</em><b>→ ${esc(b.name)}</b>${skipTxt(a, b)}</span><div class="rm"><b>${dist(mi)}</b>${pill(mi, heavy, prev, a, b)}</div></div>${(prev = needPace(mi, a, b) > EASY ? needPace(mi, a, b) : prev, '')}`;
-  }).join('') + `<div class="rt-sum">${esc(FOOD() ? `${r.length} · ${dist(tot)} · ${L().paceTot(paceTxt(tot / av).replace(/\/.*/, ''), paceTxt(mx).replace(/\/.*/, ''))}` : L().total(r.length, dist(tot), fmt(walkDays(tot), 0)))}</div>`
+    return `${k === nf && nf && S.routeAuto ? `<div class="rt-sep">${esc(t('autoSep'))}</div>` : ''}<div class="rt ${heavy ? 'heavy' : ''}"><span><em class="rf">${k + 1} · ${esc(L().fromWord(a.name))}</em><b>→ ${esc(b.name)}</b>${skipTxt(a, b)}</span><div class="rm"><b>${dist(mi)}</b>${pill(mi, heavy, prev, a, b)}</div></div>${(prev = needPace(mi, a, b) > EASY * tf(a, b) ? needPace(mi, a, b) / tf(a, b) : prev, wdt += walkDays(mi, a, b), '')}`;
+  }).join('') + `<div class="rt-sum">${esc(FOOD() ? `${r.length} · ${dist(tot)} · ${L().paceTot(paceTxt(tot / av).replace(/\/.*/, ''), paceTxt(mx).replace(/\/.*/, ''))}` : L().total(r.length, dist(tot), fmt(wdt, 0)))}</div>`
     + (nHeavy ? `<p class="warn">${esc(FOOD() ? L().paceHeavy(nHeavy, paceTxt(HARD).replace(/\/.*/, '')) : L().routeHeavy(nHeavy, MAXFOOD))}${S.routeAuto ? ' ' + esc(t('noStop')) : ''}</p>${S.routeAuto ? '' : `<button class="btn pri" id="r-fix" style="width:100%;margin-top:8px">${esc(t('routeFix'))}</button>`}` : '');
   const fix = $('#r-fix');
   if (fix) fix.onclick = () => { S.fixed = []; S.routeAuto = true; render(); toast(t('stratTaken')); };
@@ -362,7 +375,7 @@ function renderStrat() {
   $('#strat-head').innerHTML = head;
   let prev = null;
   $('#strat').innerHTML = list.map(s => {
-    const mi = prev ? miBetween(prev, s) : 0; const prevName = prev ? prev.name : null; prev = s;
+    const p0 = prev, mi = prev ? miBetween(prev, s) : 0; const prevName = prev ? prev.name : null; prev = s;
     return `<div class="row" data-i="${s.i}"><div class="h">
       <div class="d"><b>${mi ? '+' + dist(mi) : '🚩'}</b><small>${mi ? fmt(walkDays(mi), 1) + ' ' + t('days') : ''}</small></div>
       <div class="n">${prevName ? `<div class="from">${esc(L().fromWord(prevName))}${s.fill ? ` · <span class="fillb">${esc(t('fillStop'))}</span>` : ''}</div>` : ''}<strong>${esc(s.name)}</strong><div class="mini">${svcIcons(s)}</div>${s.use != null ? `<div class="usebar"><i><b style="width:${Math.min(100, s.use)}%"></b></i>${fmt(s.use)} %${s.box ? ` · 📦 ${fmt(s.box)} %` : ''}</div>` : ''}</div>

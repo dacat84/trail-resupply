@@ -27,6 +27,8 @@ for s in json.loads((ROOT / "data" / "other_stops.json").read_text(encoding="utf
                   "avg": False, "est": True, "de": s.get("note", ""), "en": s.get("note_en", s.get("note", ""))})
 
 trails = json.loads((ROOT / "data" / "trails_meta.json").read_text(encoding="utf-8"))
-out = {"trails": trails, "stops": stops}
+import hashlib
+ver = hashlib.md5(json.dumps([(s["trail"], s["name"], s["mile"]) for s in stops]).encode()).hexdigest()[:8]
+out = {"trails": trails, "stops": stops, "ver": ver}
 (ROOT / "data" / "resupply.json").write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 print(len(stops), "Stops")
